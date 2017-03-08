@@ -42,14 +42,13 @@ var testLanguage = function() {
 };
 
 var testMedia = function() {
-	  var mediaReport = "";
-		for(var i in app.media)
-		{
-			mediaReport += i;
-			mediaReport += " : ";
-			mediaReport += app.media[i];
-			mediaReport += "\n";
-		}
+    var mediaReport = "";
+    for (var i in app.media) {
+        mediaReport += i;
+        mediaReport += " : ";
+        mediaReport += app.media[i];
+        mediaReport += "\n";
+    }
     app.alert("media is:\n" + mediaReport);
 };
 
@@ -63,27 +62,111 @@ var testPlugins = function() {
 };
 
 var testPrinterNames = function() {
-	app.alert("has " + app.printerNames.length + " printers");
+    app.alert("has " + app.printerNames.length + " printers");
 };
 
 var testRuntimeHighlight = function() {
-	app.alert("runtimeHighlight is "+ app.runtimeHighlight);
+    app.alert("runtimeHighlight is " + app.runtimeHighlight);
 };
 
 var testRuntimeHighlightColor = function() {
-	app.alert("runtimeHighlightColor is " + app.runtimeHighlightColor);
+    app.alert("runtimeHighlightColor is " + app.runtimeHighlightColor);
 };
 
 var testViewerType = function() {
-	app.alert("viewer type is "+app.viewerType);
+    app.alert("viewer type is " + app.viewerType);
 };
 
 var testViewerVariation = function() {
-	app.alert("viewer variation is: " + app.viwerVariation);
+    app.alert("viewer variation is: " + app.viwerVariation);
 };
 
 var testViewerVersion = function() {
-	app.alert("viewer version is: " + app.viewerVersion);
+    app.alert("viewer version is: " + app.viewerVersion);
+};
+
+var testAlert = function() {
+
+};
+
+var testBeep = function() {
+
+};
+
+var testBrowseForDoc = function() {
+
+};
+
+var testClearInterval = function() {
+
+};
+
+var testClearTimeOut = function() {
+
+};
+
+var testExecDialog = function() {
+
+};
+
+var testExecMenuItem = function() {
+
+};
+
+var testFindComponent = function() {
+
+};
+
+var testGoBack = function() {
+
+};
+
+var testGoForward = function() {
+
+};
+
+var testLaunchURL = function() {
+
+};
+
+var testMailMsg = function() {
+
+};
+
+var testNewDoc = function() {
+
+};
+
+var testNewFDF = function() {
+
+};
+
+var testOpenDoc = function() {
+
+};
+
+var testOpenFDF = function() {
+
+};
+
+var testPopUpMenu = function() {
+
+};
+
+var testPopUpMenuEx = function() {
+
+};
+
+var testResponse = function() {
+
+};
+
+var testSetInterval = function() {
+
+};
+
+var testSetTimeOut = function() {
+
 };
 
 var functions = {
@@ -102,5 +185,26 @@ var functions = {
     runtimeHighlightColor: testRuntimeHighlightColor,
     viewerType: testViewerType,
     viewerVariation: testViewerVariation,
-    viewerVersion: testViewerVersion
+    viewerVersion: testViewerVersion,
+    alert: testAlert,
+    beep: testBeep,
+    browseForDoc: testBrowseForDoc,
+    clearInterval: testClearInterval,
+    clearTimeOut: testClearTimeOut,
+    execDialog: testExecDialog,
+    execMenuItem: testExecMenuItem,
+    findComponent: testFindComponent,
+    goBack: testGoBack,
+    goForward: testGoForward,
+    launchURL: testLaunchURL,
+    mailMsg: testMailMsg,
+    newDoc: testNewDoc,
+    newFDF: testNewFDF,
+    openDoc: testOpenDoc,
+    openFDF: testOpenFDF,
+    popUpMenu: testPopUpMenu,
+    popUpMenuEx: testPopUpMenuEx,
+    response: testResponse,
+    setInterval: testSetInterval,
+    setTimeOut: testSetTimeOut
 };

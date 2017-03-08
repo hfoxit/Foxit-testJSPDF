@@ -657,9 +657,23 @@ function generateTestPDFScript() {
         ]
     };
 
-    function generateButtons(arr, page, verticalOffset) {
+    function generateButtons(label, page, verticalOffset) {
         //arr is the array of field names
         //verticalOffset is where they should start in a page
+        var arr = test[label];
+
+        var generateFunctions = "";
+        var generateFunctionsObject = "";
+
+        for(var i = 0; i<arr.length; i++)
+        {
+          var keyword = arr[i];
+          var keywordCapitalized = keyword.charAt(0).toUpperCase() + keyword.slice(1);
+          generateFunctions += "var test" + keywordCapitalized + " = function(){\r\n\r\n};\r\n\r\n";
+          generateFunctionsObject += keyword + ": test" + keywordCapitalized + ",\r\n";
+        }
+
+        console.println(generateFunctions + generateFunctionsObject);
 
         var leftMargin = 43;
         var standardWidth = 54;
@@ -668,7 +682,16 @@ function generateTestPDFScript() {
         var standardRowCapacity = 5;
 
         //adding label
-        
+        var labelRect = [0, 0, 0, 0];
+        labelRect[0] = leftMargin;
+        labelRect[2] = labelRect[0] + standardWidth;
+        labelRect[1] = verticalOffset;
+        labelRect[3] = labelRect[1] - standardHeight;
+
+        verticalOffset -= standardHeight + standardGap;
+        var l = addField(label, "text", page, labelRect);
+        l.value = label;
+        l.readonly = true;
 
         //adding buttons
         for (var i = 0; i < arr.length; i++) {
@@ -687,7 +710,7 @@ function generateTestPDFScript() {
 
     }
 
-    generateButtons(test["appMethods"], 0, 628);
+    generateButtons("appMethods", 0, 588);
 
 }
 
@@ -702,6 +725,7 @@ function removeTestScript() {
     };
 
     for (var i in test) {
+        removeField(i);
         var arr = test[i];
         for (var j = 0; j < arr.length; j++) {
             removeField(arr[j]);
