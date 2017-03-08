@@ -612,10 +612,10 @@ function testSimple() {
     var status = sigFie.signatureValidate();
     sig = getField("Signature0").signatureInfo();
     var msg = "";
-    if(status < 3)
-      msg = "Signature not valid!" + sig.statusText;
+    if (status < 3)
+        msg = "Signature not valid!" + sig.statusText;
     else
-      msg = "Signature valid! " + sig.statusText;
+        msg = "Signature valid! " + sig.statusText;
 
     console.println(msg);
 
@@ -629,9 +629,8 @@ function testSimple() {
     console.println(global.radius);
 
     var t = getTemplate("temp0");
-    if( t == undefined )
-    {
-      console.println("template undefined");
+    if (t == undefined) {
+        console.println("template undefined");
     }
     t.spawn(numPages, false, false);
     console.println(t.name);
@@ -648,38 +647,64 @@ function testSimple() {
     console.println(util.printd("mmmm dd, yyyy", dreal));
 }
 
-function generateTestPDFScript(){
-  var test = {
-    appMethods : ["alert", "beep", "browseForDoc", "clearInterval", "clearTimeOut",
-                  "execDialog", "execMenuItem", "findComponent", "goBack", "goForward",
-                "launchURL", "mailMsg", "newDoc", "newFDF", "openDoc",
-                "openFDF","popUpMenu", "popUpMenuEx", "response", "setInterval",
-                "setTimeOut"]
-  };
+function generateTestPDFScript() {
+    var test = {
+        appMethods: ["alert", "beep", "browseForDoc", "clearInterval", "clearTimeOut",
+            "execDialog", "execMenuItem", "findComponent", "goBack", "goForward",
+            "launchURL", "mailMsg", "newDoc", "newFDF", "openDoc",
+            "openFDF", "popUpMenu", "popUpMenuEx", "response", "setInterval",
+            "setTimeOut"
+        ]
+    };
 
-  function generateButtons(arr, verticalOffset)
-  {
-    //arr is the array of field names
-    //verticalOffset is where they should start in a page
+    function generateButtons(arr, page, verticalOffset) {
+        //arr is the array of field names
+        //verticalOffset is where they should start in a page
 
-    var inch = 72;
-    var aRect = this.getPageBox({
-        nPage: 0
-    });
-    aRect[0] += .5 * inch; // from upper left hand corner of page.
-    aRect[2] = aRect[0] + .5 * inch; // Make it .5 inch wide
-    aRect[1] -= .5 * inch;
-    aRect[3] = aRect[1] - 24;
-    console.println(aRect[0] + ", " + aRect[1] + ", " + aRect[2] + ", " + aRect[3]);
+        var leftMargin = 43;
+        var standardWidth = 54;
+        var standardHeight = 20;
+        var standardGap = 20;
+        var standardRowCapacity = 5;
 
-    for(var i = 0; i<arr.length; i++)
-    {
-    aRect[0] = leftMargin;
-    aRect[2] = aRect[0] + standardWidth;
-    aRect[1] = verticalOffset;
-    aRect[3] = aRect[1] - standardHeight;
-    var f = this.addField(arr[i], "button", 0, aRect);
+        //adding label
+        
+
+        //adding buttons
+        for (var i = 0; i < arr.length; i++) {
+            var aRect = [0, 0, 0, 0];
+            var horizontalIndex = i % standardRowCapacity;
+            var verticalIndex = Math.floor(i / standardRowCapacity);
+            aRect[0] = leftMargin + (standardWidth + standardGap) * horizontalIndex;
+            aRect[2] = aRect[0] + standardWidth;
+            aRect[1] = verticalOffset - (standardHeight + standardGap) * verticalIndex;
+            aRect[3] = aRect[1] - standardHeight;
+            var f = this.addField(arr[i], "button", page, aRect);
+            f.buttonSetCaption(arr[i]);
+            var script = "functions[\"" + arr[i] + "\"]();"
+            f.setAction("MouseUp", script);
+        }
+
     }
 
-  }
+    generateButtons(test["appMethods"], 0, 628);
+
+}
+
+function removeTestScript() {
+    var test = {
+        appMethods: ["alert", "beep", "browseForDoc", "clearInterval", "clearTimeOut",
+            "execDialog", "execMenuItem", "findComponent", "goBack", "goForward",
+            "launchURL", "mailMsg", "newDoc", "newFDF", "openDoc",
+            "openFDF", "popUpMenu", "popUpMenuEx", "response", "setInterval",
+            "setTimeOut"
+        ]
+    };
+
+    for (var i in test) {
+        var arr = test[i];
+        for (var j = 0; j < arr.length; j++) {
+            removeField(arr[j]);
+        }
+    }
 }
