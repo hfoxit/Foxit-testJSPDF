@@ -648,14 +648,62 @@ function testSimple() {
 }
 
 function generateTestPDFScript() {
-    var test = {
-        appMethods: ["alert", "beep", "browseForDoc", "clearInterval", "clearTimeOut",
-            "execDialog", "execMenuItem", "findComponent", "goBack", "goForward",
-            "launchURL", "mailMsg", "newDoc", "newFDF", "openDoc",
-            "openFDF", "popUpMenu", "popUpMenuEx", "response", "setInterval",
-            "setTimeOut"
-        ]
-    };
+  var test = {
+      appMethods: ["alert", "beep", "browseForDoc", "clearInterval", "clearTimeOut",
+          "execDialog", "execMenuItem", "findComponent", "goBack", "goForward",
+          "launchURL", "mailMsg", "newDoc", "newFDF", "openDoc",
+          "openFDF", "popUpMenu", "popUpMenuEx", "response", "setInterval",
+          "setTimeOut"
+      ],
+      docProperties: ["author", "bookmarkRoot", "calculate", "creationDate", "creator",
+                    "dataObjects", "delay", "dirty", "documentFileName", "dynamicXFAForm",
+                    "external", "filesize", "icons", "info", "keywords",
+                    "layout", "docMedia", "modDate", "mouseX", "mouseY",
+                    "numFields", "numPages", "pageNum", "path", "producer",
+                    "securityHandler", "subject", "templates", "title", "URL",
+                    "zoom", "zoomType"],
+      docMethods: ["addAnnot", "addField", "addIcon", "addLink", "calculateNow",
+                  "closeDoc", "createDataObject", "createTemplate", "deletePages", "exportAsFDF",
+                  "exportAsText", "exportAsXFDF", "exportDataObject", "extractPages", "getAnnot",
+                  "getAnnot3D", "getAnnots", "getAnnots3D", "getDataObject", "getField",
+                  "getIcon", "getLinks", "getNthFieldName", "getOCGs", "getPageBox",
+                  "getPageNthWord", "getPageNthWordQuads", "getPageNumWords", "getPageRotation", "getPageTransition",
+                  "getPrintParams", "getTemplate", "getURL", "gotoNamedDest", "importAnFDF",
+                  "importAnXFDF", "importDataObject", "importTextData", "insertPages", "mailDoc",
+                  "mailForm", "print", "removeDataObject", "removeField", "removeIcon",
+                  "replacePages", "resetForm", "saveAs", "scroll", "spawnPageFromTemplate",
+                  "submitForm"],
+      fieldProperties: ["alignment", "borderStyle", "buttonAlignX", "buttonAlignY", "buttonFitBounds",
+                        "buttonPosition", "buttonScaleHow", "buttonScaleWhen", "calcOrderIndex", "charLimit",
+                        "comb", "commitOnSelChange", "currentValueIndices", "defaultStyle", "defaultValue",
+                        "fieldDelay", "display", "doc", "doNotScroll", "doNotSpellCheck",
+                        "editable", "exportValues", "fileSelect", "fillColor", "hidden",
+                        "highlight", "lineWidth", "multiline", "multipleSelection", "name",
+                        "numItems", "page", "password", "print", "radiosInUnixon",
+                        "readonly", "rect", "required", "richText", "richValue",
+                        "rotation", "strokeColor", "style", "submitName", "textColor",
+                        "textFont", "textSize", "type", "userName", "value",
+                        "valueAsString"],
+      fieldMethods: ["browseForFileToSubmit", "buttonGetCaption", "buttonGetIcon", "buttonImportIcon", "buttonSetCaption",
+                    "buttonSetIcon", "checkThisBox", "clearItems", "defaultIsChecked", "deleteItemAt",
+                    "getArray", "getItemAt", "getLock", "insertItemAt", "isBoxChecked",
+                    "isDefaultChecked", "setAction", "setFocus", "setItems", "setLock",
+                    "signatureGetModifications", "signatureSetSeedValue", "signatureInfo", "signatureSetSeedValue", "signatureSign",
+                    "signatureValidate"],
+      identityProperties: ["coporation", "email", "loginName", "identityName"],
+      globalMethods: ["setPersistent"],
+      templateMethods: ["templateHidden", "templateName", "spawn"],
+      util: ["printf", "printx", "scand", "printd"],
+      afMethods: ["AFDate_Format", "AFDate_FormatEx", "AFDate_Keystroke", "AFDate_KeystrokeEx", "AFExtractNums",
+                  "AFMakeNumber", "AFMergeChange", "AFNumber_Format", "AFNumber_Keystroke", "AFParseDateEx",
+                  "AFPercent_Format", "AFPercent_Keystroke", "AFRange_Validate", "AFSimple", "AFSimple_Calculate",
+                  "AFSpecial_Keystroke", "AFSpecial_KeystrokeEx", "AFTime_Format", "AFTime_FormatEx", "AFTime_Keystroke"],
+      console: ["clear", "hide", "println", "show"],
+      colorProperties: ["transparent", "black", "white", "red", "green",
+                        "blue", "cyan", "magenta", "yellow", "dkGray",
+                        "gray", "ltGray"],
+      colorMethods: ["equal", "convert"]
+  };
 
     function generateButtons(label, page, verticalOffset) {
         //arr is the array of field names
@@ -715,14 +763,62 @@ function generateTestPDFScript() {
 }
 
 function removeTestScript() {
-    var test = {
-        appMethods: ["alert", "beep", "browseForDoc", "clearInterval", "clearTimeOut",
-            "execDialog", "execMenuItem", "findComponent", "goBack", "goForward",
-            "launchURL", "mailMsg", "newDoc", "newFDF", "openDoc",
-            "openFDF", "popUpMenu", "popUpMenuEx", "response", "setInterval",
-            "setTimeOut"
-        ]
-    };
+  var test = {
+      appMethods: ["alert", "beep", "browseForDoc", "clearInterval", "clearTimeOut",
+          "execDialog", "execMenuItem", "findComponent", "goBack", "goForward",
+          "launchURL", "mailMsg", "newDoc", "newFDF", "openDoc",
+          "openFDF", "popUpMenu", "popUpMenuEx", "response", "setInterval",
+          "setTimeOut"
+      ],
+      docProperties: ["author", "bookmarkRoot", "calculate", "creationDate", "creator",
+                    "dataObjects", "delay", "dirty", "documentFileName", "dynamicXFAForm",
+                    "external", "filesize", "icons", "info", "keywords",
+                    "layout", "docMedia", "modDate", "mouseX", "mouseY",
+                    "numFields", "numPages", "pageNum", "path", "producer",
+                    "securityHandler", "subject", "templates", "title", "URL",
+                    "zoom", "zoomType"],
+      docMethods: ["addAnnot", "addField", "addIcon", "addLink", "calculateNow",
+                  "closeDoc", "createDataObject", "createTemplate", "deletePages", "exportAsFDF",
+                  "exportAsText", "exportAsXFDF", "exportDataObject", "extractPages", "getAnnot",
+                  "getAnnot3D", "getAnnots", "getAnnots3D", "getDataObject", "getField",
+                  "getIcon", "getLinks", "getNthFieldName", "getOCGs", "getPageBox",
+                  "getPageNthWord", "getPageNthWordQuads", "getPageNumWords", "getPageRotation", "getPageTransition",
+                  "getPrintParams", "getTemplate", "getURL", "gotoNamedDest", "importAnFDF",
+                  "importAnXFDF", "importDataObject", "importTextData", "insertPages", "mailDoc",
+                  "mailForm", "print", "removeDataObject", "removeField", "removeIcon",
+                  "replacePages", "resetForm", "saveAs", "scroll", "spawnPageFromTemplate",
+                  "submitForm"],
+      fieldProperties: ["alignment", "borderStyle", "buttonAlignX", "buttonAlignY", "buttonFitBounds",
+                        "buttonPosition", "buttonScaleHow", "buttonScaleWhen", "calcOrderIndex", "charLimit",
+                        "comb", "commitOnSelChange", "currentValueIndices", "defaultStyle", "defaultValue",
+                        "fieldDelay", "display", "doc", "doNotScroll", "doNotSpellCheck",
+                        "editable", "exportValues", "fileSelect", "fillColor", "hidden",
+                        "highlight", "lineWidth", "multiline", "multipleSelection", "name",
+                        "numItems", "page", "password", "print", "radiosInUnixon",
+                        "readonly", "rect", "required", "richText", "richValue",
+                        "rotation", "strokeColor", "style", "submitName", "textColor",
+                        "textFont", "textSize", "type", "userName", "value",
+                        "valueAsString"],
+      fieldMethods: ["browseForFileToSubmit", "buttonGetCaption", "buttonGetIcon", "buttonImportIcon", "buttonSetCaption",
+                    "buttonSetIcon", "checkThisBox", "clearItems", "defaultIsChecked", "deleteItemAt",
+                    "getArray", "getItemAt", "getLock", "insertItemAt", "isBoxChecked",
+                    "isDefaultChecked", "setAction", "setFocus", "setItems", "setLock",
+                    "signatureGetModifications", "signatureSetSeedValue", "signatureInfo", "signatureSetSeedValue", "signatureSign",
+                    "signatureValidate"],
+      identityProperties: ["coporation", "email", "loginName", "identityName"],
+      globalMethods: ["setPersistent"],
+      templateMethods: ["templateHidden", "templateName", "spawn"],
+      util: ["printf", "printx", "scand", "printd"],
+      afMethods: ["AFDate_Format", "AFDate_FormatEx", "AFDate_Keystroke", "AFDate_KeystrokeEx", "AFExtractNums",
+                  "AFMakeNumber", "AFMergeChange", "AFNumber_Format", "AFNumber_Keystroke", "AFParseDateEx",
+                  "AFPercent_Format", "AFPercent_Keystroke", "AFRange_Validate", "AFSimple", "AFSimple_Calculate",
+                  "AFSpecial_Keystroke", "AFSpecial_KeystrokeEx", "AFTime_Format", "AFTime_FormatEx", "AFTime_Keystroke"],
+      console: ["clear", "hide", "println", "show"],
+      colorProperties: ["transparent", "black", "white", "red", "green",
+                        "blue", "cyan", "magenta", "yellow", "dkGray",
+                        "gray", "ltGray"],
+      colorMethods: ["equal", "convert"]
+  };
 
     for (var i in test) {
         removeField(i);
