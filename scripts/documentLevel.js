@@ -86,11 +86,30 @@ var testViewerVersion = function() {
 };
 
 var testAlert = function() {
+  var oMyCheckbox = {
+      cMsg: "Care to see?",
+      bInitialValue: true,
+      bAfterValue: true
+  };
 
+  app.alert({
+      cMsg: "abcMsg",
+      cTitle: "abcTitle",
+      oCheckbox: oMyCheckbox
+  });
 };
 
 var testBeep = function() {
+  function sound() {
+      app.beep(1);
+  }
+  timeout = app.setTimeOut("sound()", 1000);
 
+  try {
+      app.clearTimeOut(timeout);
+  } catch (e) {
+
+  }
 };
 
 var testBrowseForDoc = function() {
@@ -98,19 +117,93 @@ var testBrowseForDoc = function() {
 };
 
 var testClearInterval = function() {
-
+  testBeep();
 };
 
 var testClearTimeOut = function() {
-
+  testBeep();
 };
 
 var testExecDialog = function() {
-    app.alert("execDialog");
+  var dialog1 = {
+      initialize: function(dialog) {
+          // Create a static text containing the current date.
+          var todayDate = dialog.store()["date"];
+          todayDate = "Date: " + util.printd("mmmm dd, yyyy", new Date());
+          dialog.load({
+              "date": todayDate
+          });
+      },
+      commit: function(dialog) { // called when OK pressed
+          var results = dialog.store();
+          // Now do something with the data collected, for example,
+          console.println("Your name is " + results["fnam"] +
+              " " + results["lnam"]);
+      },
+      description: {
+          name: "Personal Data", // Dialog box title
+          align_children: "align_left",
+          width: 350,
+          height: 200,
+          elements: [{
+                  type: "cluster",
+                  name: "Your Name",
+                  align_children: "align_left",
+                  elements: [{
+                          type: "view",
+                          align_children: "align_row",
+                          elements: [{
+                                  type: "static_text",
+                                  name: "First Name: "
+                              },
+                              {
+                                  item_id: "fnam",
+                                  type: "edit_text",
+                                  alignment: "align_fill",
+                                  width: 300,
+                                  height: 20
+                              }
+                          ]
+                      },
+                      {
+                          type: "view",
+                          align_children: "align_row",
+                          elements: [{
+                                  type: "static_text",
+                                  name: "Last Name: "
+                              },
+                              {
+                                  item_id: "lnam",
+                                  type: "edit_text",
+                                  alignment: "align_fill",
+                                  width: 300,
+                                  height: 20
+                              }
+                          ]
+                      },
+                      {
+                          type: "static_text",
+                          name: "Date: ",
+                          char_width: 25,
+                          item_id: "date"
+                      },
+                  ]
+              },
+              {
+                  alignment: "align_right",
+                  type: "ok_cancel",
+                  ok_name: "Ok",
+                  cancel_name: "Cancel"
+              }
+          ]
+      }
+  };
+
+  app.execDialog(dialog1);
 };
 
 var testExecMenuItem = function() {
-
+  app.execMenuItem("Open");
 };
 
 var testFindComponent = function() {
@@ -130,51 +223,102 @@ var testLaunchURL = function() {
 };
 
 var testMailMsg = function() {
-
+  app.mailMsg(false, "hong_zhang@foxitsoftware.com", "", "", "This is the subject", "This is the body");
 };
 
 var testNewDoc = function() {
-
+  var myDoc = app.newDoc();
+  myDoc.closeDoc(true);
 };
 
 var testNewFDF = function() {
-
+  var fdf = app.newFDF();
+  var oEntity = {
+      firstName: "Fred",
+      lastName: "Smith",
+      fullName: "Fred Smith"
+  };
+  fdf.addContact(oEntity);
+  fdf.save("C:\\Users\\Hong\\Downloads\\myFile.fdf");
 };
 
 var testOpenDoc = function() {
-
+  var myDoc0 = app.openDoc("C:\\test\ doc\\formcont.txt");
+  var myDoc1 = app.openDoc("C:\\test\ doc\\FoxitForm.pdf");
+  var myDoc2 = app.openDoc("C:\\Users\\Hong\\Pictures\\workspace.PNG");
 };
 
 var testOpenFDF = function() {
-
+  app.openFDF("C:\\Users\\Hong\\Downloads\\FoxitForm.fdf");
 };
 
 var testPopUpMenu = function() {
-
+  var cChoice = app.popUpMenu("Introduction", "-", "Chapter 1", ["Chapter 2", "Chapter 2 Start", "Chapter 2 Middle", ["Chapter 2 End", "The End"]]);
 };
 
 var testPopUpMenuEx = function() {
-
+  var cChoice = app.popUpMenuEx({
+      cName: "Item 1",
+      bMarked: true,
+      bEnabled: false
+  }, {
+      cName: "-"
+  }, {
+      cName: "Item 2",
+      oSubMenu: [{
+              cName: "Item 2, Submenu 1"
+          },
+          {
+              cName: "Item 2, Submenu 2",
+              oSubMenu: {
+                  cName: "Item 2, Submenu 2, Subsubmenu 1",
+                  cReturn: "0"
+              }
+          }
+      ]
+  }, {
+      cName: "Item 3"
+  }, {
+      cName: "Item 4",
+      bMarked: true,
+      cReturn: "1"
+  })
 };
 
 var testResponse = function() {
-
+  var cResponse = app.response({
+      cQuestion: "How are you today?",
+      cTitle: "Your Health Status",
+      cDefault: "Fine",
+      bPassword: true,
+      cLabel: "Response:"
+  });
 };
 
 var testSetInterval = function() {
-
+  testBeep();
 };
 
 var testSetTimeOut = function() {
-
+  testBeep();
 };
 
-var testAuthor = function() {
+function executeTest(object, property) //allowing incorrect syntax
+{
+    var message = object + property + " test starts\r\n";
+    message += object[property] + "\r\n";
+    object[property] = "FoxitTest";
+    message += object[property] + "\r\n";
+    message += object + property + "test ends\r\n";
+    app.alert(message);
+}
 
+var testAuthor = function() {
+  executeTest(this, "author");
 };
 
 var testBookmarkRoot = function() {
-
+  executeTest(this, "bookmarkRoot");
 };
 
 var testCalculate = function() {
@@ -182,15 +326,15 @@ var testCalculate = function() {
 };
 
 var testCreationDate = function() {
-
+  executeTest(this, "creationDate");
 };
 
 var testCreator = function() {
-
+  executeTest(this, "creator");
 };
 
 var testDataObjects = function() {
-
+  executeTest(this, "dataObjects");
 };
 
 var testDelay = function() {
@@ -202,7 +346,7 @@ var testDirty = function() {
 };
 
 var testDocumentFileName = function() {
-
+  executeTest(this, "documentFileName");
 };
 
 var testDynamicXFAForm = function() {
@@ -214,7 +358,7 @@ var testExternal = function() {
 };
 
 var testFilesize = function() {
-
+  executeTest(this, "fileSize");
 };
 
 var testIcons = function() {
@@ -234,39 +378,42 @@ var testLayout = function() {
 };
 
 var testDocMedia = function() {
-
+  var annots = this.media.getAnnots({
+      nPage: 0
+  });
+  app.alert(annots.length);
 };
 
 var testModDate = function() {
-
+  executeTest(this, "modDate");
 };
 
 var testMouseX = function() {
-
+  executeTest(this, "mouseX");
 };
 
 var testMouseY = function() {
-
+  executeTest(this, "mouseY");
 };
 
 var testNumFields = function() {
-
+  executeTest(this, "numFields");
 };
 
 var testNumPages = function() {
-
+  executeTest(this, "numPages");
 };
 
 var testPageNum = function() {
-
+  executeTest(this, "pageNum");
 };
 
 var testPath = function() {
-
+  executeTest(this, "path");
 };
 
 var testProducer = function() {
-
+  executeTest(this, "producer");
 };
 
 var testSecurityHandler = function() {
@@ -274,7 +421,7 @@ var testSecurityHandler = function() {
 };
 
 var testSubject = function() {
-
+  executeTest(this, "subject");
 };
 
 var testTemplates = function() {
@@ -282,11 +429,11 @@ var testTemplates = function() {
 };
 
 var testTitle = function() {
-
+  executeTest(this, "title");
 };
 
 var testURL = function() {
-
+  executeTest(this, "URL");
 };
 
 var testZoom = function() {
@@ -294,23 +441,48 @@ var testZoom = function() {
 };
 
 var testZoomType = function() {
-
+  executeTest(this, "zoomType");
 };
 
 var testAddAnnot = function() {
-
+  var annot = this.addAnnot({
+      page: 5,
+      type: "Square",
+      rect: [0, 0, 100, 100],
+      name: "OnMarketShare",
+      author: "A. C. Robat",
+      contents: "This section needs revision."
+  });
 };
 
 var testAddField = function() {
-
+  var inch = 72;
+  var aRect = this.getPageBox({
+      nPage: 5
+  });
+  aRect[0] += .5 * inch; // from upper left hand corner of page.
+  aRect[2] = aRect[0] + .5 * inch; // Make it .5 inch wide
+  aRect[1] -= .5 * inch;
+  aRect[3] = aRect[1] - 24;
+  console.println(aRect[0] + ", " + aRect[1] + ", " + aRect[2] + ", " + aRect[3]);
+  var f = this.addField("NextPage", "button", 5, aRect);
 };
 
 var testAddIcon = function() {
+  var f = this.getField("pb1");
+  this.addIcon("myButtonIcon", f.buttonGetIcon());
 
+  var b = this.getField("pb2");
+  var i = this.getIcon("myButtonIcon");
+  b.buttonSetIcon(i);
 };
 
 var testAddLink = function() {
-
+  var linkWidth = 36;
+  var linkHeight = 18;
+  var linkRect = [0, linkHeight, linkWidth, 0];
+  var lk = this.addLink(5, linkRect);
+  lk.setAction("this.getURL('http://www.google.com');");
 };
 
 var testCalculateNow = function() {
@@ -318,11 +490,14 @@ var testCalculateNow = function() {
 };
 
 var testCloseDoc = function() {
-
+  var myDoc = app.newDoc();
+  myDoc.closeDoc(true);
 };
 
 var testCreateDataObject = function() {
-
+  this.createDataObject("MyData", "This is some data.");
+  var d = this.getDataObject("MyData");
+  for (var i in d) app.alert("MyData." + i + "=" + d[i]);
 };
 
 var testCreateTemplate = function() {
@@ -334,27 +509,38 @@ var testDeletePages = function() {
 };
 
 var testExportAsFDF = function() {
-
+  this.exportAsFDF(true, true, null, true);
 };
 
 var testExportAsText = function() {
-
+  var text = this.exportAsText();
+  app.alert(text);
 };
 
 var testExportAsXFDF = function() {
-
+  this.exportAsXFDF();
 };
 
 var testExportDataObject = function() {
-
+  this.createDataObject("MyData", "This is some data.");
+  this.exportDataObject("MyData");
 };
 
 var testExtractPages = function() {
-
+  this.extractPages({
+      nStart: 1,
+      cPath: "C:\\test doc\\a.pdf"
+  });
 };
 
 var testGetAnnot = function() {
-
+  var annots = getAnnots({
+    nPage: 5
+  });
+  if(annots == undefined || annots.length == 0)
+    testAddAnnot();
+  var ann = this.getAnnot(5, "OnMarketShare");
+  app.alert("Found it! type: " + ann.type);
 };
 
 var testGetAnnot3D = function() {
@@ -362,63 +548,117 @@ var testGetAnnot3D = function() {
 };
 
 var testGetAnnots = function() {
-
+  var annots = this.getAnnots({
+      nPage: 5
+  });
+  var msg = "";
+  annots.forEach(function(element) {
+      for (var property in element)
+          msg+=(element[property])+"\r\n";
+  });
+  app.alert(msg);
 };
 
 var testGetAnnots3D = function() {
-
+  //need to insert a 3d annot into the document
+  var annots3d = this.getAnnots3D({
+      nPage: 5
+  });
+  var msg = "";
+  annots3d.forEach(function(element) {
+      for (var property in element)
+          msg += element[property] + "\r\n";
+  });
+  app.alert(msg);
 };
 
 var testGetDataObject = function() {
-
+  this.createDataObject("MyData", "This is some data.");
+  var d = this.getDataObject("MyData");
+  var msg = "";
+  for (var i in d) msg += "MyData." + i + "=" + d[i] + "\r\n";
+  app.alert(msg);
 };
 
 var testGetField = function() {
-
+  testAddIcon();
 };
 
 var testGetIcon = function() {
-
+  testAddIcon();
 };
 
 var testGetLinks = function() {
-
+  var numLinks = 0;
+  for (var p = 0; p < this.numPages; p++) {
+      var b = this.getPageBox("Crop", p);
+      var l = this.getLinks(p, b);
+      console.println("Number of Links on page " + p + " is " + l.length);
+      numLinks += l.length;
+  }
+  if(numLinks == 0)
+  {
+    testAddLink();
+    testGetLinks();
+  }
+  else
+    app.alert("Number of Links in Document is " + numLinks);
 };
 
 var testGetNthFieldName = function() {
-
+  var msg = "";
+  for (var i = 0; i < this.numFields; i++)
+      msg += ("Field[" + i + "] = " + this.getNthFieldName(i)) + "\r\n";
+  app.alert(msg);
 };
 
 var testGetOCGs = function() {
-
+  var ocgArray = getOCGs(0);
+  app.alert(ocgArray.length);
 };
 
 var testGetPageBox = function() {
-
+  testAddField();
 };
 
 var testGetPageNthWord = function() {
-
+  var word = getPageNthWord({
+      nPage: 5,
+      nWord: 0
+  });
+  app.alert(word);
 };
 
 var testGetPageNthWordQuads = function() {
+  var quads = getPageNthWordQuads({
+      nPage: 5,
+      nWord: 0
+  });
 
+  app.alert(quads);
 };
 
 var testGetPageNumWords = function() {
-
+  var cnt = getPageNumWords(5);
+  app.alert(cnt);
 };
 
 var testGetPageRotation = function() {
-
+  var rotation = getPageRotation(5);
+  app.alert(rotation);
 };
 
 var testGetPageTransition = function() {
-
+  var transitionArray = this.getPageTransition();
+  console.println(transitionArray[0]);
 };
 
 var testGetPrintParams = function() {
-
+  var pp = this.getPrintParams();
+  var msg = "";
+  for (prop in pp)
+      msg += (pp[prop]) + "\r\n";
+  app.alert(msg);
 };
 
 var testGetTemplate = function() {
@@ -426,11 +666,11 @@ var testGetTemplate = function() {
 };
 
 var testGetURL = function() {
-
+  this.getURL("http://www.adobe.com", true);
 };
 
 var testGotoNamedDest = function() {
-
+  this.gotoNamedDest("foxit");
 };
 
 var testImportAnFDF = function() {
