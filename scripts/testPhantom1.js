@@ -691,7 +691,7 @@ function generateTestPDFScript() {
             "buttonSetIcon", "checkThisBox", "clearItems", "defaultIsChecked", "deleteItemAt",
             "getArray", "getItemAt", "getLock", "insertItemAt", "isBoxChecked",
             "isDefaultChecked", "setAction", "setFocus", "setItems", "setLock",
-            "signatureGetModifications", "signatureSetSeedValue", "signatureInfo", "signatureSetSeedValue", "signatureSign",
+            "signatureGetModifications", "signatureGetSeedValue", "signatureInfo", "signatureSetSeedValue", "signatureSign",
             "signatureValidate"
         ],
         identityProperties: ["coporation", "email", "loginName", "identityName"],
@@ -811,7 +811,7 @@ function removeTestScript() {
             "buttonSetIcon", "checkThisBox", "clearItems", "defaultIsChecked", "deleteItemAt",
             "getArray", "getItemAt", "getLock", "insertItemAt", "isBoxChecked",
             "isDefaultChecked", "setAction", "setFocus", "setItems", "setLock",
-            "signatureGetModifications", "signatureSetSeedValue", "signatureInfo", "signatureSetSeedValue", "signatureSign",
+            "signatureGetModifications", "signatureGetSeedValue", "signatureInfo", "signatureSetSeedValue", "signatureSign",
             "signatureValidate"
         ],
         identityProperties: ["coporation", "email", "loginName", "identityName"],

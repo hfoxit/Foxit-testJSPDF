@@ -1204,91 +1204,164 @@ app.alert("if CheckBox0 default checked: "+getField("CheckBox0").isDefaultChecke
 };
 
 var testSetAction = function() {
-
+  var f = this.addField("actionField", "button", 5, [20, 100, 100, 20]);
+  f.setAction("MouseUp", "app.beep(0);");
 };
 
 var testSetFocus = function() {
-
+  getField("TextField0").setFocus();
 };
 
 var testSetItems = function() {
-
+  getField("ComboBox0").setItems([
+      ["item0", "export0"],
+      ["item1", "export1"],
+      ["item2", "export2"]
+  ]);
+  app.alert("ComboBox0");
 };
 
 var testSetLock = function() {
-
+testGetLock();
 };
 
 var testSignatureGetModifications = function() {
-
+  var sigMods = getField("Signature0").signatureGetModifications();
+  var fields = sigMods.formFieldsCreated;
+  var msg = "";
+  for (var i = 0; i < fields.length; i++) {
+      msg += fields[i].name + "\r\n";
+  }
+  app.alert(msg);
 };
 
-var testSignatureSetSeedValue = function() {
+var testSignatureGetSeedValue = function() {
+  var sigFie = this.getField("Signature0");
+  sigFie.signatureSetSeedValue({
+      mdp: "defaultAndComments",
+      legalAttestations: ["Trust me and be at ease.",
+          "You can surely trust the author."
+      ],
+      reasons: ["This is a reason", "This is a better reason"],
+      flags: 8
+  });
 
+  var seedValue = getField("Signature0").signatureGetSeedValue();
+  app.alert("Filter name:" + seedValue.filter + "\r\nFlags:" + seedValue.flags);
 };
 
 var testSignatureInfo = function() {
-
+  var sig = getField("Signature0").signatureInfo();
+  var msg = "";
+  msg += ("Signature Attributes:\r\n");
+  for (i in sig) msg == (i + " = " + s[i] + "\r\n");
 };
 
 var testSignatureSetSeedValue = function() {
-
+  testSignatureGetSeedValue();
 };
 
 var testSignatureSign = function() {
-
+testSignatureGetSeedValue();
 };
 
 var testSignatureValidate = function() {
+  var sigFie = this.getField("Signature0");
+  var status = sigFie.signatureValidate();
+  sig = getField("Signature0").signatureInfo();
+  var msg = "";
+  if (status < 3)
+      msg = "Signature not valid!" + sig.statusText;
+  else
+      msg = "Signature valid! " + sig.statusText;
+
+  app.alert(msg);
 
 };
 
 var testCoporation = function() {
-
+app.alert(identity.corporation);
 };
 
 var testEmail = function() {
-
+app.alert(identity.email);
 };
 
 var testLoginName = function() {
-
+app.alert(identity.loginName);
 };
 
 var testIdentityName = function() {
-
+app.alert(identity.name);
 };
 
 var testSetPersistent = function() {
 
+  var nButton = app.alert({
+      cMsg: "yes set persistent no check persistent",
+      nIcon: 3,
+      nType: 3
+  });
+
+  if (nButton == 6 || nButton == 4) {
+      //yes
+      global.radius = 8;
+      global.setPersistent("radius", true);
+  }
+
+  if (nButton = 7 || nButton == 3) {
+      app.alert("global.radius = " + global.radius);
+  }
+
 };
 
 var testTemplateHidden = function() {
-
+  var t = getTemplate("foxit");
+  if (t == undefined) {
+      app.alert("template undefined");
+  }
+  else {
+    t.hidden = true;
+  }
 };
 
 var testTemplateName = function() {
-
+  var t = getTemplate("foxit");
+  if (t == undefined) {
+      app.alert("template undefined");
+  }
+  else {
+    app.alert(t.name);
+  }
 };
 
 var testSpawn = function() {
-
+  var t = getTemplate("foxit");
+  if (t == undefined) {
+      app.alert("template undefined");
+  }
+  else {
+    t.spawn(numPages, false, false);
+  }
 };
 
 var testPrintf = function() {
-
+  app.alert(util.printf("hex: %x", 1209));
 };
 
 var testPrintx = function() {
-
+  app.alert(util.printx("(XXX) XXX - XXXX", "abcdefghij"));
 };
 
 var testScand = function() {
+  var dstring = util.printd("mmmm dd, yyyy", new Date());
+  var dreal = util.scand("mmmm dd, yyyy", dstring);
 
+  app.alert(dreal + "\r\n" + util.printd("mmmm dd, yyyy", dreal));
 };
 
 var testPrintd = function() {
-
+  testScand();
 };
 
 var testAFDate_Format = function() {
@@ -1636,7 +1709,7 @@ var functions = {
     setItems: testSetItems,
     setLock: testSetLock,
     signatureGetModifications: testSignatureGetModifications,
-    signatureSetSeedValue: testSignatureSetSeedValue,
+    signatureGetSeedValue: testSignatureGetSeedValue,
     signatureInfo: testSignatureInfo,
     signatureSetSeedValue: testSignatureSetSeedValue,
     signatureSign: testSignatureSign,
