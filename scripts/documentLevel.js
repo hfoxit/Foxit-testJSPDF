@@ -836,83 +836,159 @@ var testSubmitForm = function() {
 };
 
 var testAlignment = function() {
-
+  var f = getField("TextField0");
+  f.alignment = "right";
+  app.alert("TextField0 now aligned to right");
 };
 
 var testBorderStyle = function() {
-
+var f = getField("TextField0");
+f.borderStyle = border.d;
+app.alert("TextField0 now border is dashed");
 };
 
 var testButtonAlignX = function() {
-
+  var f = getField("pb1");
+  f.buttonAlignX = 100;
+  app.alert("pb1");
 };
 
 var testButtonAlignY = function() {
-
+  var f = getField("pb1");
+  f.buttonAlignY = 100;
+  app.alert("pb1");
 };
 
 var testButtonFitBounds = function() {
-
+var f = getField("pb1");
+f.buttonFitBounds = true;
+app.alert("pb1");
 };
 
 var testButtonPosition = function() {
+  var nButton = app.alert({
+      cMsg: "yes for textOnly no for iconOnly",
+      nIcon: 3,
+      nType: 3
+  });
+
+  if (nButton == 6 || nButton == 4) {
+      //yes
+      var f = getField("pb1");
+      f.buttonPosition = position.textOnly;
+  }
+
+  if (nButton = 7 || nButton == 3) {
+    var f = getField("pb1");
+    f.buttonPosition = position.iconOnly;
+  }
 
 };
 
 var testButtonScaleHow = function() {
-
+  var f = getField("pb1");
+  f.buttonScaleHow = scaleHow.anamorphic;
+  app.alert("pb1");
 };
 
 var testButtonScaleWhen = function() {
-
+  var f = getField("pb1");
+  f.buttonScaleWhen = scaleWhen.Never;
+  app.alert("pb1");
 };
 
 var testCalcOrderIndex = function() {
-
+app.alert(getField("TextField0").calcOrderIndex);
 };
 
 var testCharLimit = function() {
-
+app.alert(getField("TextField0").charLimit);
 };
 
 var testComb = function() {
+  var nButton = app.alert({
+      cMsg: "yes for comb no for no comb",
+      nIcon: 3,
+      nType: 3
+  });
 
+  if (nButton == 6 || nButton == 4) {
+      //yes
+      getField("TextField0").comb = true;
+  }
+
+  if (nButton = 7 || nButton == 3) {
+      getField("TextField0").comb = false;
+  }
 };
 
 var testCommitOnSelChange = function() {
+  var nButton = app.alert({
+      cMsg: "yes for commit on sel for no commit on sel",
+      nIcon: 3,
+      nType: 3
+  });
 
+  if (nButton == 6 || nButton == 4) {
+      //yes
+      getField("ComboBox0").commitOnSelChange = true;
+  }
+
+  if (nButton = 7 || nButton == 3) {
+      getField("ComboBox0").commitOnSelChange = false;
+  }
 };
 
 var testCurrentValueIndices = function() {
+  app.alert(getField("ComboBox0").currentValueIndices);
 
 };
 
 var testDefaultStyle = function() {
-
+  var style = getField("TextField0").defaultStyle;
+  style.textColor = rolor.red;
+  getField("TextField0").defaultStyle = style;
+  app.alert("TextField0");
 };
 
 var testDefaultValue = function() {
-
+getField("TextField0").defaultValue = "34";
+app.alert("TextField0");
 };
 
 var testFieldDelay = function() {
+
 
 };
 
 var testDisplay = function() {
 
+  var nButton = app.alert({
+      cMsg: "yes for hidden no for no visible",
+      nIcon: 3,
+      nType: 3
+  });
+
+  if (nButton == 6 || nButton == 4) {
+      //yes
+      getField("TextField0").display = display.hidden;
+  }
+
+  if (nButton = 7 || nButton == 3) {
+      getField("TextField0").display = display.visible;
+  }
 };
 
 var testDoc = function() {
-
+app.alert("test doc:" + getField("TextField0").doc.filesize);
 };
 
 var testDoNotScroll = function() {
-
+getField("TextField0").doNotScroll = true;
 };
 
 var testDoNotSpellCheck = function() {
-
+getField("TextField0").doNotSpellCheck = false;
 };
 
 var testEditable = function() {
@@ -924,11 +1000,11 @@ var testExportValues = function() {
 };
 
 var testFileSelect = function() {
-
+getField("TextField0").fileSelect = true;
 };
 
 var testFillColor = function() {
-
+getField("TextField0").fillColor = color.red;
 };
 
 var testHidden = function() {
@@ -936,11 +1012,11 @@ var testHidden = function() {
 };
 
 var testHighlight = function() {
-
+getField("PushButton0").highlight = hightlight.i;
 };
 
 var testLineWidth = function() {
-
+getField("TextField0").lineWidth = 3;
 };
 
 var testMultiline = function() {
