@@ -836,124 +836,124 @@ var testSubmitForm = function() {
 };
 
 var testAlignment = function() {
-  var f = getField("TextField0");
-  f.alignment = "right";
-  app.alert("TextField0 now aligned to right");
+    var f = getField("TextField0");
+    f.alignment = "right";
+    app.alert("TextField0 now aligned to right");
 };
 
 var testBorderStyle = function() {
-var f = getField("TextField0");
-f.borderStyle = border.d;
-app.alert("TextField0 now border is dashed");
+    var f = getField("TextField0");
+    f.borderStyle = border.d;
+    app.alert("TextField0 now border is dashed");
 };
 
 var testButtonAlignX = function() {
-  var f = getField("pb1");
-  f.buttonAlignX = 100;
-  app.alert("pb1");
+    var f = getField("pb1");
+    f.buttonAlignX = 100;
+    app.alert("pb1");
 };
 
 var testButtonAlignY = function() {
-  var f = getField("pb1");
-  f.buttonAlignY = 100;
-  app.alert("pb1");
+    var f = getField("pb1");
+    f.buttonAlignY = 100;
+    app.alert("pb1");
 };
 
 var testButtonFitBounds = function() {
-var f = getField("pb1");
-f.buttonFitBounds = true;
-app.alert("pb1");
+    var f = getField("pb1");
+    f.buttonFitBounds = true;
+    app.alert("pb1");
 };
 
 var testButtonPosition = function() {
-  var nButton = app.alert({
-      cMsg: "yes for textOnly no for iconOnly",
-      nIcon: 3,
-      nType: 3
-  });
+    var nButton = app.alert({
+        cMsg: "yes for textOnly no for iconOnly",
+        nIcon: 3,
+        nType: 3
+    });
 
-  if (nButton == 6 || nButton == 4) {
-      //yes
-      var f = getField("pb1");
-      f.buttonPosition = position.textOnly;
-  }
+    if (nButton == 6 || nButton == 4) {
+        //yes
+        var f = getField("pb1");
+        f.buttonPosition = position.textOnly;
+    }
 
-  if (nButton = 7 || nButton == 3) {
-    var f = getField("pb1");
-    f.buttonPosition = position.iconOnly;
-  }
+    if (nButton = 7 || nButton == 3) {
+        var f = getField("pb1");
+        f.buttonPosition = position.iconOnly;
+    }
 
 };
 
 var testButtonScaleHow = function() {
-  var f = getField("pb1");
-  f.buttonScaleHow = scaleHow.anamorphic;
-  app.alert("pb1");
+    var f = getField("pb1");
+    f.buttonScaleHow = scaleHow.anamorphic;
+    app.alert("pb1");
 };
 
 var testButtonScaleWhen = function() {
-  var f = getField("pb1");
-  f.buttonScaleWhen = scaleWhen.Never;
-  app.alert("pb1");
+    var f = getField("pb1");
+    f.buttonScaleWhen = scaleWhen.Never;
+    app.alert("pb1");
 };
 
 var testCalcOrderIndex = function() {
-app.alert(getField("TextField0").calcOrderIndex);
+    app.alert(getField("TextField0").calcOrderIndex);
 };
 
 var testCharLimit = function() {
-app.alert(getField("TextField0").charLimit);
+    app.alert(getField("TextField0").charLimit);
 };
 
 var testComb = function() {
-  var nButton = app.alert({
-      cMsg: "yes for comb no for no comb",
-      nIcon: 3,
-      nType: 3
-  });
+    var nButton = app.alert({
+        cMsg: "yes for comb no for no comb",
+        nIcon: 3,
+        nType: 3
+    });
 
-  if (nButton == 6 || nButton == 4) {
-      //yes
-      getField("TextField0").comb = true;
-  }
+    if (nButton == 6 || nButton == 4) {
+        //yes
+        getField("TextField0").comb = true;
+    }
 
-  if (nButton = 7 || nButton == 3) {
-      getField("TextField0").comb = false;
-  }
+    if (nButton = 7 || nButton == 3) {
+        getField("TextField0").comb = false;
+    }
 };
 
 var testCommitOnSelChange = function() {
-  var nButton = app.alert({
-      cMsg: "yes for commit on sel for no commit on sel",
-      nIcon: 3,
-      nType: 3
-  });
+    var nButton = app.alert({
+        cMsg: "yes for commit on sel for no commit on sel",
+        nIcon: 3,
+        nType: 3
+    });
 
-  if (nButton == 6 || nButton == 4) {
-      //yes
-      getField("ComboBox0").commitOnSelChange = true;
-  }
+    if (nButton == 6 || nButton == 4) {
+        //yes
+        getField("ComboBox0").commitOnSelChange = true;
+    }
 
-  if (nButton = 7 || nButton == 3) {
-      getField("ComboBox0").commitOnSelChange = false;
-  }
+    if (nButton = 7 || nButton == 3) {
+        getField("ComboBox0").commitOnSelChange = false;
+    }
 };
 
 var testCurrentValueIndices = function() {
-  app.alert(getField("ComboBox0").currentValueIndices);
+    app.alert(getField("ComboBox0").currentValueIndices);
 
 };
 
 var testDefaultStyle = function() {
-  var style = getField("TextField0").defaultStyle;
-  style.textColor = rolor.red;
-  getField("TextField0").defaultStyle = style;
-  app.alert("TextField0");
+    var style = getField("TextField0").defaultStyle;
+    style.textColor = rolor.red;
+    getField("TextField0").defaultStyle = style;
+    app.alert("TextField0");
 };
 
 var testDefaultValue = function() {
-getField("TextField0").defaultValue = "34";
-app.alert("TextField0");
+    getField("TextField0").defaultValue = "34";
+    app.alert("TextField0");
 };
 
 var testFieldDelay = function() {
@@ -963,32 +963,32 @@ var testFieldDelay = function() {
 
 var testDisplay = function() {
 
-  var nButton = app.alert({
-      cMsg: "yes for hidden no for no visible",
-      nIcon: 3,
-      nType: 3
-  });
+    var nButton = app.alert({
+        cMsg: "yes for hidden no for no visible",
+        nIcon: 3,
+        nType: 3
+    });
 
-  if (nButton == 6 || nButton == 4) {
-      //yes
-      getField("TextField0").display = display.hidden;
-  }
+    if (nButton == 6 || nButton == 4) {
+        //yes
+        getField("TextField0").display = display.hidden;
+    }
 
-  if (nButton = 7 || nButton == 3) {
-      getField("TextField0").display = display.visible;
-  }
+    if (nButton = 7 || nButton == 3) {
+        getField("TextField0").display = display.visible;
+    }
 };
 
 var testDoc = function() {
-app.alert("test doc:" + getField("TextField0").doc.filesize);
+    app.alert("test doc:" + getField("TextField0").doc.filesize);
 };
 
 var testDoNotScroll = function() {
-getField("TextField0").doNotScroll = true;
+    getField("TextField0").doNotScroll = true;
 };
 
 var testDoNotSpellCheck = function() {
-getField("TextField0").doNotSpellCheck = false;
+    getField("TextField0").doNotSpellCheck = false;
 };
 
 var testEditable = function() {
@@ -1000,11 +1000,11 @@ var testExportValues = function() {
 };
 
 var testFileSelect = function() {
-getField("TextField0").fileSelect = true;
+    getField("TextField0").fileSelect = true;
 };
 
 var testFillColor = function() {
-getField("TextField0").fillColor = color.red;
+    getField("TextField0").fillColor = color.red;
 };
 
 var testHidden = function() {
@@ -1012,171 +1012,195 @@ var testHidden = function() {
 };
 
 var testHighlight = function() {
-getField("PushButton0").highlight = hightlight.i;
+    getField("PushButton0").highlight = hightlight.i;
 };
 
 var testLineWidth = function() {
-getField("TextField0").lineWidth = 3;
+    getField("TextField0").lineWidth = 3;
 };
 
 var testMultiline = function() {
-
+    getField("TextField0").multiline = true;
 };
 
 var testMultipleSelection = function() {
-
+    getField("ListBox0").multipleSelection = true;
 };
 
 var testName = function() {
-
+    app.alert(getField("TextField0").name);
 };
 
 var testNumItems = function() {
-
+    app.alert(getField("ListBox0").numItems);
 };
 
 var testPage = function() {
-
+    app.alert(getField("TextField0").page);
 };
 
 var testPassword = function() {
-
+    getField("TextField0").password = true;
+    app.alert("TextField0 has password format now");
 };
 
 var testPrint = function() {
-
+    getField("TextField0").print = false;
 };
 
 var testRadiosInUnixon = function() {
-
+    getField("RadioButton1").radiosInUnixon = false;
 };
 
 var testReadonly = function() {
-
+    getField("TextField0").readonly = true;
 };
 
 var testRect = function() {
-
+    var b = getField("TextField0");
+    var aRect = b.rect;
+    aRect[0] += 10;
+    aRect[2] += 10;
+    b.rect = aRect;
 };
 
 var testRequired = function() {
-
+    getField("TextField0").required = true;
 };
 
 var testRichText = function() {
+    getField("TextField0").richText = true;
 
+    var spans = new Array();
+    spans[0] = new Object();
+    spans[0].text = "attention: \r";
+    spans[0].textColor = color.blue;
+    spans[0].textSize = 18;
+    getField("TextField0").richValue = spans;
 };
 
 var testRichValue = function() {
-
+  testRichText();
 };
 
 var testRotation = function() {
-
+getField("TextField0").rotation = 180;
 };
 
 var testStrokeColor = function() {
-
+getField("TextField0").strokeColor = color.blue;
 };
 
 var testStyle = function() {
-
+getField("RadioButton1").style = style.st;
 };
 
 var testSubmitName = function() {
-
+getField("TextField0").submitName = "TextField100";
 };
 
 var testTextColor = function() {
-
+getField("TextField0").textColor = color.blue;
 };
 
 var testTextFont = function() {
-
+getField("TextField0").textFont = font.TimesI;
 };
 
 var testTextSize = function() {
-
+getField("TextField0").textSize = 28;
 };
 
 var testType = function() {
-
+app.alert(getField("TextField0").type);
 };
 
 var testUserName = function() {
-
+getField("TextField0").userName = "A TextField";
 };
 
 var testValue = function() {
-
+getField("TextField0").value = "Two TextFields";
 };
 
 var testValueAsString = function() {
-
+app.alert(getField("TextField0").valueAsString);
 };
 
 var testBrowseForFileToSubmit = function() {
-
+  getField("TextField0").fileSelect = true;
+  getField("TextField0").browseForFileToSubmit();
 };
 
 var testButtonGetCaption = function() {
-
+app.alert(getField("PushButton0").buttonGetCaption());
 };
 
 var testButtonGetIcon = function() {
-
+testAddIcon();
 };
 
 var testButtonImportIcon = function() {
-
+getField("pb0").buttonImportIcon("C:\\test\ doc\\FoxitForm.pdf");
 };
 
 var testButtonSetCaption = function() {
-
+getField("PushButton0").buttonSetCaption("HelloButton");
 };
 
 var testButtonSetIcon = function() {
-
+testAddIcon();
 };
 
 var testCheckThisBox = function() {
-
+getField("CheckBox0").checkThisBox(0, true);
 };
 
 var testClearItems = function() {
-
+getField("ComboBox0").clearItems();
 };
 
 var testDefaultIsChecked = function() {
-
+getField("CheckBox0").defaultIsChecked(0, true);
 };
 
 var testDeleteItemAt = function() {
-
+getField("ComboBox0").deleteItemAt(1);
 };
 
 var testGetArray = function() {
-
+  var f = this.getField("f");
+  var a = f.getArray();
+  app.alert(a[1].value);
 };
 
 var testGetItemAt = function() {
-
+app.alert(getField("ComboBox0").getItemAt(1));
 };
 
 var testGetLock = function() {
+  var lockObject = {
+      action: "Include",
+      fields: ["pb0", "TextField0"]
+  };
+
+  getField("Signature0").setLock(lockObject);
+  var lo = getField("Signature0").getLock();
+  app.alert(lo.fields[1]);
 
 };
 
 var testInsertItemAt = function() {
-
+getField("ComboBox0").insertItemAt("sam", "s", -1);
+app.alert("ComboBox0: sam, s, -1");
 };
 
 var testIsBoxChecked = function() {
-
+app.alert("if CheckBox0 checked: "+getField("CheckBox0").isBoxChecked(0));
 };
 
 var testIsDefaultChecked = function() {
-
+app.alert("if CheckBox0 default checked: "+getField("CheckBox0").isDefaultChecked(0));
 };
 
 var testSetAction = function() {
