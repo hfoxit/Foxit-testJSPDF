@@ -1445,75 +1445,88 @@ var testAFTime_Keystroke = function() {
 };
 
 var testClear = function() {
-
+  console.clear();
 };
 
 var testHide = function() {
-
+  console.hide();
 };
 
 var testPrintln = function() {
-
+  console.println("console println");
 };
 
 var testShow = function() {
-
+  console.show();
 };
 
 var testTransparent = function() {
-
+  getField("TextField0").fillColor = color.transparent;
+  app.alert("TextField0");
 };
 
 var testBlack = function() {
-
+getField("TextField0").fillColor = color.black;
+app.alert("TextField0");
 };
 
 var testWhite = function() {
-
+getField("TextField0").fillColor = color.white;
+app.alert("TextField0");
 };
 
 var testRed = function() {
-
+getField("TextField0").fillColor = color.red;
+app.alert("TextField0");
 };
 
 var testGreen = function() {
-
+getField("TextField0").fillColor = color.green;
+app.alert("TextField0");
 };
 
 var testBlue = function() {
-
+getField("TextField0").fillColor = color.blue;
+app.alert("TextField0");
 };
 
 var testCyan = function() {
-
+getField("TextField0").fillColor = color.cyan;
+app.alert("TextField0");
 };
 
 var testMagenta = function() {
-
+getField("TextField0").fillColor = color.magenta;
+app.alert("TextField0");
 };
 
 var testYellow = function() {
-
+getField("TextField0").fillColor = color.yellow;
+app.alert("TextField0");
 };
 
 var testDkGray = function() {
-
+getField("TextField0").fillColor = color.dkGray;
+app.alert("TextField0");
 };
 
 var testGray = function() {
-
+getField("TextField0").fillColor = color.gray;
+app.alert("TextField0");
 };
 
 var testLtGray = function() {
-
+getField("TextField0").fillColor = color.ltGray;
+app.alert("TextField0");
 };
 
 var testEqual = function() {
-
+app.alert(color.equal(color.yellow, color.yellow));
 };
 
 var testConvert = function() {
-
+var cmyk = color.convert(["RGB", 1, 0, 0], "CMYK");
+app.alert(cmyk);
 };
 
 var functions = {
