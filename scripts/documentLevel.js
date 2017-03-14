@@ -1080,288 +1080,285 @@ var testRichText = function() {
 };
 
 var testRichValue = function() {
-  testRichText();
+    testRichText();
 };
 
 var testRotation = function() {
-getField("TextField0").rotation = 180;
+    getField("TextField0").rotation = 180;
 };
 
 var testStrokeColor = function() {
-getField("TextField0").strokeColor = color.blue;
+    getField("TextField0").strokeColor = color.blue;
 };
 
 var testStyle = function() {
-getField("RadioButton1").style = style.st;
+    getField("RadioButton1").style = style.st;
 };
 
 var testSubmitName = function() {
-getField("TextField0").submitName = "TextField100";
+    getField("TextField0").submitName = "TextField100";
 };
 
 var testTextColor = function() {
-getField("TextField0").textColor = color.blue;
+    getField("TextField0").textColor = color.blue;
 };
 
 var testTextFont = function() {
-getField("TextField0").textFont = font.TimesI;
+    getField("TextField0").textFont = font.TimesI;
 };
 
 var testTextSize = function() {
-getField("TextField0").textSize = 28;
+    getField("TextField0").textSize = 28;
 };
 
 var testType = function() {
-app.alert(getField("TextField0").type);
+    app.alert(getField("TextField0").type);
 };
 
 var testUserName = function() {
-getField("TextField0").userName = "A TextField";
+    getField("TextField0").userName = "A TextField";
 };
 
 var testValue = function() {
-getField("TextField0").value = "Two TextFields";
+    getField("TextField0").value = "Two TextFields";
 };
 
 var testValueAsString = function() {
-app.alert(getField("TextField0").valueAsString);
+    app.alert(getField("TextField0").valueAsString);
 };
 
 var testBrowseForFileToSubmit = function() {
-  getField("TextField0").fileSelect = true;
-  getField("TextField0").browseForFileToSubmit();
+    getField("TextField0").fileSelect = true;
+    getField("TextField0").browseForFileToSubmit();
 };
 
 var testButtonGetCaption = function() {
-app.alert(getField("PushButton0").buttonGetCaption());
+    app.alert(getField("PushButton0").buttonGetCaption());
 };
 
 var testButtonGetIcon = function() {
-testAddIcon();
+    testAddIcon();
 };
 
 var testButtonImportIcon = function() {
-getField("pb0").buttonImportIcon("C:\\test\ doc\\FoxitForm.pdf");
+    getField("pb0").buttonImportIcon("C:\\test\ doc\\FoxitForm.pdf");
 };
 
 var testButtonSetCaption = function() {
-getField("PushButton0").buttonSetCaption("HelloButton");
+    getField("PushButton0").buttonSetCaption("HelloButton");
 };
 
 var testButtonSetIcon = function() {
-testAddIcon();
+    testAddIcon();
 };
 
 var testCheckThisBox = function() {
-getField("CheckBox0").checkThisBox(0, true);
+    getField("CheckBox0").checkThisBox(0, true);
 };
 
 var testClearItems = function() {
-getField("ComboBox0").clearItems();
+    getField("ComboBox0").clearItems();
 };
 
 var testDefaultIsChecked = function() {
-getField("CheckBox0").defaultIsChecked(0, true);
+    getField("CheckBox0").defaultIsChecked(0, true);
 };
 
 var testDeleteItemAt = function() {
-getField("ComboBox0").deleteItemAt(1);
+    getField("ComboBox0").deleteItemAt(1);
 };
 
 var testGetArray = function() {
-  var f = this.getField("f");
-  var a = f.getArray();
-  app.alert(a[1].value);
+    var f = this.getField("f");
+    var a = f.getArray();
+    app.alert(a[1].value);
 };
 
 var testGetItemAt = function() {
-app.alert(getField("ComboBox0").getItemAt(1));
+    app.alert(getField("ComboBox0").getItemAt(1));
 };
 
 var testGetLock = function() {
-  var lockObject = {
-      action: "Include",
-      fields: ["pb0", "TextField0"]
-  };
+    var lockObject = {
+        action: "Include",
+        fields: ["pb0", "TextField0"]
+    };
 
-  getField("Signature0").setLock(lockObject);
-  var lo = getField("Signature0").getLock();
-  app.alert(lo.fields[1]);
+    getField("Signature0").setLock(lockObject);
+    var lo = getField("Signature0").getLock();
+    app.alert(lo.fields[1]);
 
 };
 
 var testInsertItemAt = function() {
-getField("ComboBox0").insertItemAt("sam", "s", -1);
-app.alert("ComboBox0: sam, s, -1");
+    getField("ComboBox0").insertItemAt("sam", "s", -1);
+    app.alert("ComboBox0: sam, s, -1");
 };
 
 var testIsBoxChecked = function() {
-app.alert("if CheckBox0 checked: "+getField("CheckBox0").isBoxChecked(0));
+    app.alert("if CheckBox0 checked: " + getField("CheckBox0").isBoxChecked(0));
 };
 
 var testIsDefaultChecked = function() {
-app.alert("if CheckBox0 default checked: "+getField("CheckBox0").isDefaultChecked(0));
+    app.alert("if CheckBox0 default checked: " + getField("CheckBox0").isDefaultChecked(0));
 };
 
 var testSetAction = function() {
-  var f = this.addField("actionField", "button", 5, [20, 100, 100, 20]);
-  f.setAction("MouseUp", "app.beep(0);");
+    var f = this.addField("actionField", "button", 5, [20, 100, 100, 20]);
+    f.setAction("MouseUp", "app.beep(0);");
 };
 
 var testSetFocus = function() {
-  getField("TextField0").setFocus();
+    getField("TextField0").setFocus();
 };
 
 var testSetItems = function() {
-  getField("ComboBox0").setItems([
-      ["item0", "export0"],
-      ["item1", "export1"],
-      ["item2", "export2"]
-  ]);
-  app.alert("ComboBox0");
+    getField("ComboBox0").setItems([
+        ["item0", "export0"],
+        ["item1", "export1"],
+        ["item2", "export2"]
+    ]);
+    app.alert("ComboBox0");
 };
 
 var testSetLock = function() {
-testGetLock();
+    testGetLock();
 };
 
 var testSignatureGetModifications = function() {
-  var sigMods = getField("Signature0").signatureGetModifications();
-  var fields = sigMods.formFieldsCreated;
-  var msg = "";
-  for (var i = 0; i < fields.length; i++) {
-      msg += fields[i].name + "\r\n";
-  }
-  app.alert(msg);
+    var sigMods = getField("Signature0").signatureGetModifications();
+    var fields = sigMods.formFieldsCreated;
+    var msg = "";
+    for (var i = 0; i < fields.length; i++) {
+        msg += fields[i].name + "\r\n";
+    }
+    app.alert(msg);
 };
 
 var testSignatureGetSeedValue = function() {
-  var sigFie = this.getField("Signature0");
-  sigFie.signatureSetSeedValue({
-      mdp: "defaultAndComments",
-      legalAttestations: ["Trust me and be at ease.",
-          "You can surely trust the author."
-      ],
-      reasons: ["This is a reason", "This is a better reason"],
-      flags: 8
-  });
+    var sigFie = this.getField("Signature0");
+    sigFie.signatureSetSeedValue({
+        mdp: "defaultAndComments",
+        legalAttestations: ["Trust me and be at ease.",
+            "You can surely trust the author."
+        ],
+        reasons: ["This is a reason", "This is a better reason"],
+        flags: 8
+    });
 
-  var seedValue = getField("Signature0").signatureGetSeedValue();
-  app.alert("Filter name:" + seedValue.filter + "\r\nFlags:" + seedValue.flags);
+    var seedValue = getField("Signature0").signatureGetSeedValue();
+    app.alert("Filter name:" + seedValue.filter + "\r\nFlags:" + seedValue.flags);
 };
 
 var testSignatureInfo = function() {
-  var sig = getField("Signature0").signatureInfo();
-  var msg = "";
-  msg += ("Signature Attributes:\r\n");
-  for (i in sig) msg == (i + " = " + s[i] + "\r\n");
+    var sig = getField("Signature0").signatureInfo();
+    var msg = "";
+    msg += ("Signature Attributes:\r\n");
+    for (i in sig) msg == (i + " = " + s[i] + "\r\n");
 };
 
 var testSignatureSetSeedValue = function() {
-  testSignatureGetSeedValue();
+    testSignatureGetSeedValue();
 };
 
 var testSignatureSign = function() {
-testSignatureGetSeedValue();
+    testSignatureGetSeedValue();
 };
 
 var testSignatureValidate = function() {
-  var sigFie = this.getField("Signature0");
-  var status = sigFie.signatureValidate();
-  sig = getField("Signature0").signatureInfo();
-  var msg = "";
-  if (status < 3)
-      msg = "Signature not valid!" + sig.statusText;
-  else
-      msg = "Signature valid! " + sig.statusText;
+    var sigFie = this.getField("Signature0");
+    var status = sigFie.signatureValidate();
+    sig = getField("Signature0").signatureInfo();
+    var msg = "";
+    if (status < 3)
+        msg = "Signature not valid!" + sig.statusText;
+    else
+        msg = "Signature valid! " + sig.statusText;
 
-  app.alert(msg);
+    app.alert(msg);
 
 };
 
 var testCoporation = function() {
-app.alert(identity.corporation);
+    app.alert(identity.corporation);
 };
 
 var testEmail = function() {
-app.alert(identity.email);
+    app.alert(identity.email);
 };
 
 var testLoginName = function() {
-app.alert(identity.loginName);
+    app.alert(identity.loginName);
 };
 
 var testIdentityName = function() {
-app.alert(identity.name);
+    app.alert(identity.name);
 };
 
 var testSetPersistent = function() {
 
-  var nButton = app.alert({
-      cMsg: "yes set persistent no check persistent",
-      nIcon: 3,
-      nType: 3
-  });
+    var nButton = app.alert({
+        cMsg: "yes set persistent no check persistent",
+        nIcon: 3,
+        nType: 3
+    });
 
-  if (nButton == 6 || nButton == 4) {
-      //yes
-      global.radius = 8;
-      global.setPersistent("radius", true);
-  }
+    if (nButton == 6 || nButton == 4) {
+        //yes
+        global.radius = 8;
+        global.setPersistent("radius", true);
+    }
 
-  if (nButton = 7 || nButton == 3) {
-      app.alert("global.radius = " + global.radius);
-  }
+    if (nButton = 7 || nButton == 3) {
+        app.alert("global.radius = " + global.radius);
+    }
 
 };
 
 var testTemplateHidden = function() {
-  var t = getTemplate("foxit");
-  if (t == undefined) {
-      app.alert("template undefined");
-  }
-  else {
-    t.hidden = true;
-  }
+    var t = getTemplate("foxit");
+    if (t == undefined) {
+        app.alert("template undefined");
+    } else {
+        t.hidden = true;
+    }
 };
 
 var testTemplateName = function() {
-  var t = getTemplate("foxit");
-  if (t == undefined) {
-      app.alert("template undefined");
-  }
-  else {
-    app.alert(t.name);
-  }
+    var t = getTemplate("foxit");
+    if (t == undefined) {
+        app.alert("template undefined");
+    } else {
+        app.alert(t.name);
+    }
 };
 
 var testSpawn = function() {
-  var t = getTemplate("foxit");
-  if (t == undefined) {
-      app.alert("template undefined");
-  }
-  else {
-    t.spawn(numPages, false, false);
-  }
+    var t = getTemplate("foxit");
+    if (t == undefined) {
+        app.alert("template undefined");
+    } else {
+        t.spawn(numPages, false, false);
+    }
 };
 
 var testPrintf = function() {
-  app.alert(util.printf("hex: %x", 1209));
+    app.alert(util.printf("hex: %x", 1209));
 };
 
 var testPrintx = function() {
-  app.alert(util.printx("(XXX) XXX - XXXX", "abcdefghij"));
+    app.alert(util.printx("(XXX) XXX - XXXX", "abcdefghij"));
 };
 
 var testScand = function() {
-  var dstring = util.printd("mmmm dd, yyyy", new Date());
-  var dreal = util.scand("mmmm dd, yyyy", dstring);
+    var dstring = util.printd("mmmm dd, yyyy", new Date());
+    var dreal = util.scand("mmmm dd, yyyy", dstring);
 
-  app.alert(dreal + "\r\n" + util.printd("mmmm dd, yyyy", dreal));
+    app.alert(dreal + "\r\n" + util.printd("mmmm dd, yyyy", dreal));
 };
 
 var testPrintd = function() {
-  testScand();
+    testScand();
 };
 
 var testAFDate_Format = function() {
@@ -1445,88 +1442,88 @@ var testAFTime_Keystroke = function() {
 };
 
 var testClear = function() {
-  console.clear();
+    console.clear();
 };
 
 var testHide = function() {
-  console.hide();
+    console.hide();
 };
 
 var testPrintln = function() {
-  console.println("console println");
+    console.println("console println");
 };
 
 var testShow = function() {
-  console.show();
+    console.show();
 };
 
 var testTransparent = function() {
-  getField("TextField0").fillColor = color.transparent;
-  app.alert("TextField0");
+    getField("TextField0").fillColor = color.transparent;
+    app.alert("TextField0");
 };
 
 var testBlack = function() {
-getField("TextField0").fillColor = color.black;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.black;
+    app.alert("TextField0");
 };
 
 var testWhite = function() {
-getField("TextField0").fillColor = color.white;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.white;
+    app.alert("TextField0");
 };
 
 var testRed = function() {
-getField("TextField0").fillColor = color.red;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.red;
+    app.alert("TextField0");
 };
 
 var testGreen = function() {
-getField("TextField0").fillColor = color.green;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.green;
+    app.alert("TextField0");
 };
 
 var testBlue = function() {
-getField("TextField0").fillColor = color.blue;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.blue;
+    app.alert("TextField0");
 };
 
 var testCyan = function() {
-getField("TextField0").fillColor = color.cyan;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.cyan;
+    app.alert("TextField0");
 };
 
 var testMagenta = function() {
-getField("TextField0").fillColor = color.magenta;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.magenta;
+    app.alert("TextField0");
 };
 
 var testYellow = function() {
-getField("TextField0").fillColor = color.yellow;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.yellow;
+    app.alert("TextField0");
 };
 
 var testDkGray = function() {
-getField("TextField0").fillColor = color.dkGray;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.dkGray;
+    app.alert("TextField0");
 };
 
 var testGray = function() {
-getField("TextField0").fillColor = color.gray;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.gray;
+    app.alert("TextField0");
 };
 
 var testLtGray = function() {
-getField("TextField0").fillColor = color.ltGray;
-app.alert("TextField0");
+    getField("TextField0").fillColor = color.ltGray;
+    app.alert("TextField0");
 };
 
 var testEqual = function() {
-app.alert(color.equal(color.yellow, color.yellow));
+    app.alert(color.equal(color.yellow, color.yellow));
 };
 
 var testConvert = function() {
-var cmyk = color.convert(["RGB", 1, 0, 0], "CMYK");
-app.alert(cmyk);
+    var cmyk = color.convert(["RGB", 1, 0, 0], "CMYK");
+    app.alert(cmyk);
 };
 
 var functions = {
@@ -1777,4 +1774,61 @@ var functions = {
     ltGray: testLtGray,
     equal: testEqual,
     convert: testConvert
+};
+
+var missingList = {
+    appProperties: ["capabilities", "constant", "constants", "focusRect",
+        "formPDFConverters", "fsClick", "fsColor", "fsCursor", "fsEscape",
+        "fsLoop", "fsTimeDelay", "fsTransition", "fsUsePageTiming", "fsUseTimer",
+        "monitor", "numPlugIns", "openInPlace", "printColorProfiles", "thermometer",
+        "toolbar", "toolbarHorizontal", "toolbarVertical", "user"
+    ],
+    appMethods: ["", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", ""
+    ],
+    docProperties: ["", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", ""
+    ],
+    docMethods: ["", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        ""
+    ],
+    fieldProperties: ["", "", "", ""],
+    fieldMethods: ["", "", ""],
+    identityProperties: ["", ""],
+    globalMethods: [""],
+    templateMethods: [],
+    util: ["", "", "", "", "",
+        "", "", "", "", "",
+        "", ""
+    ],
+    afMethods: ["", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        ""
+    ],
+    console: [],
+    colorProperties: [],
+    colorMethods: []
 };
