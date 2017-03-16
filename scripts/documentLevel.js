@@ -1526,6 +1526,21 @@ var testConvert = function() {
     app.alert(cmyk);
 };
 
+var testMissingList = function() {
+    var msg = "existing list:\r\n";
+    for (var i in missingList) {
+        var arr = missingList[i];
+        for (var j = 0; j < arr.length; j++) {
+            if (eval(i + "." + arr[j]) != undefined) {
+                msg += i + "." + arr[j];
+                msg += "\r\n";
+            }
+        }
+    }
+
+    app.alert(msg);
+};
+
 var functions = {
     appVersion: testAppVersion,
     activeDocs: testActiveDocs,
@@ -1820,11 +1835,11 @@ var missingList = {
     util: ["charToByte", "byteToChar", "fixOldString", "stringFromStream", "streamFromString",
         "iconStreamFromIcon", "readFileIntoStream", "crackURL", "xmlToSpans", "spansToXML"
     ],
-    afMethods: ["", "", "", "", "",
-        "", "", "", "", "",
-        "", "", "", "", "",
-        "", "", "", "", "",
-        ""
+    afMethods: ["AFBuildRegExps", "AFDateFromYMD", "AFDateHorizon", "AFExactMatch", "AFExtractRegExp",
+        "AFExtractTime", "AFGetMonthIndex", "AFGetMonthString", "AFMakeArrayFromList", "AFMatchMonth",
+        "AFParseDate", "AFParseDateOrder", "AFParseDateWithPDF", "AFParseDateYCount", "AFParseGMTDateString",
+        "AFParseTime", "AFSignature_Format", "AFSignatureLock", "AFSimpleInit", "AFSpecial_Format",
+        "AFStringReplace"
     ],
     console: [],
     colorProperties: [],
