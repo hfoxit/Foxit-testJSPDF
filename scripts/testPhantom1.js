@@ -866,3 +866,53 @@ function regenerateCatogory() {
     }
     generateButtons(i, page, getPageBox(page)[1] - 20);
 }
+
+function outputPropertyReport(){
+
+  var testArr = ["__app", "__this", "__field", "__global", "__util", "__color", "__console", "__identity", "__template", "__thermometer"];
+  var evaluators = ["app", "this", "getField('TextField0')", "global", "util", "color", "console", "identity", "getTemplate", "app.thermometer"];
+
+  //self constructing
+  var msg = "var storage = ";
+  msg += ( "{" );
+  for(var i = 0; i < testArr.length; i++)
+  {
+    msg += (testArr[i] + ":[]" );
+    if(i+1 != testArr.length)
+      msg += (",");
+  }
+  msg += ( "};" );
+
+  //value initialization
+  eval(msg);
+  for(var i = 0; i<testArr.length; i++)
+  {
+    var propertyName = testArr[i];
+    for(var j in eval(evaluators[i]))
+    {
+      storage[propertyName].push(j);
+    }
+    storage[propertyName].sort();
+  }
+
+  //print self constructing
+  console.println( "var t = {" );
+  for(var i = 0; i < testArr.length; i++)
+  {
+    console.println(testArr[i] + ":[]" );
+    if(i+1 != testArr.length)
+      console.println(",");
+  }
+  console.println( "};" );
+
+  //print value initialization
+  for(var prop in storage)
+  {
+    var array = storage[prop];
+    for(var item in array)
+    {
+      console.println("t['"+ prop +"'].push('" + array[item] +"');");
+    }
+  }
+
+}
