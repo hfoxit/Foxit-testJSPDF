@@ -1,10 +1,10 @@
 function Init() {}
 
-var testAppVersion = function() {
+function testAppVersion() {
     app.alert("appVersion is: " + app.appVersion);
 };
 
-var testActiveDocs = function() {
+function testActiveDocs() {
     var d = app.activeDocs;
     var str = "";
     for (var i = 0; i < d.length; i++) {
@@ -15,33 +15,33 @@ var testActiveDocs = function() {
     app.alert(str);
 };
 
-var testAddressBookAvailable = function() {
+function testAddressBookAvailable() {
     if (app.adddressBookAvailable)
         app.alert("address book is available");
     else
         app.alert("address book is not available");
 };
 
-var testFormsVersion = function() {
+function testFormsVersion() {
     app.alert("forms version is: " + app.formsVersion);
 };
 
-var testFs = function() {
+function testFs() {
     if (app.fs.isFullScreen)
         app.alert("is full screen");
     else
         app.alert("is not fullscreen");
 };
 
-var testFullscreen = function() {
+function testFullscreen() {
     app.alert("if fullscreen is: " + app.fullscreen);
 };
 
-var testLanguage = function() {
+function testLanguage() {
     app.alert("language is: " + app.language);
 };
 
-var testMedia = function() {
+function testMedia() {
     var mediaReport = "";
     for (var i in app.media) {
         mediaReport += i;
@@ -52,40 +52,40 @@ var testMedia = function() {
     app.alert("media is:\n" + mediaReport);
 };
 
-var testPlatform = function() {
+function testPlatform() {
     app.alert("platform is: " + app.platform);
 };
 
-var testPlugins = function() {
+function testPlugins() {
     var plugins = app.plugIns;
     app.alert("has " + plugins.length + " plugins");
 };
 
-var testPrinterNames = function() {
+function testPrinterNames() {
     app.alert("has " + app.printerNames.length + " printers");
 };
 
-var testRuntimeHighlight = function() {
+function testRuntimeHighlight() {
     app.alert("runtimeHighlight is " + app.runtimeHighlight);
 };
 
-var testRuntimeHighlightColor = function() {
+function testRuntimeHighlightColor() {
     app.alert("runtimeHighlightColor is " + app.runtimeHighlightColor);
 };
 
-var testViewerType = function() {
+function testViewerType() {
     app.alert("viewer type is " + app.viewerType);
 };
 
-var testViewerVariation = function() {
+function testViewerVariation() {
     app.alert("viewer variation is: " + app.viwerVariation);
 };
 
-var testViewerVersion = function() {
+function testViewerVersion() {
     app.alert("viewer version is: " + app.viewerVersion);
 };
 
-var testAlert = function() {
+function testAlert() {
     var oMyCheckbox = {
         cMsg: "Care to see?",
         bInitialValue: true,
@@ -99,7 +99,7 @@ var testAlert = function() {
     });
 };
 
-var testBeep = function() {
+function testBeep() {
     function sound() {
         app.beep(1);
     }
@@ -112,19 +112,19 @@ var testBeep = function() {
     }
 };
 
-var testBrowseForDoc = function() {
+function testBrowseForDoc() {
 
 };
 
-var testClearInterval = function() {
+function testClearInterval() {
     testBeep();
 };
 
-var testClearTimeOut = function() {
+function testClearTimeOut() {
     testBeep();
 };
 
-var testExecDialog = function() {
+function testExecDialog() {
     var dialog1 = {
         initialize: function(dialog) {
             // Create a static text containing the current date.
@@ -202,36 +202,36 @@ var testExecDialog = function() {
     app.execDialog(dialog1);
 };
 
-var testExecMenuItem = function() {
+function testExecMenuItem() {
     app.execMenuItem("Open");
 };
 
-var testFindComponent = function() {
+function testFindComponent() {
     app.alert("undocumented: how to test it?");
 };
 
-var testGoBack = function() {
+function testGoBack() {
     app.goBack();
 };
 
-var testGoForward = function() {
+function testGoForward() {
     app.goForward();
 };
 
-var testLaunchURL = function() {
+function testLaunchURL() {
     app.launchURL("http://www.google.com", true);
 };
 
-var testMailMsg = function() {
+function testMailMsg() {
     app.mailMsg(false, "hong_zhang@foxitsoftware.com", "", "", "This is the subject", "This is the body");
 };
 
-var testNewDoc = function() {
+function testNewDoc() {
     var myDoc = app.newDoc();
     myDoc.closeDoc(true);
 };
 
-var testNewFDF = function() {
+function testNewFDF() {
     var fdf = app.newFDF();
     var oEntity = {
         firstName: "Fred",
@@ -242,21 +242,21 @@ var testNewFDF = function() {
     fdf.save("C:\\Users\\Hong\\Downloads\\myFile.fdf");
 };
 
-var testOpenDoc = function() {
+function testOpenDoc() {
     var myDoc0 = app.openDoc("C:\\test\ doc\\formcont.txt");
     var myDoc1 = app.openDoc("C:\\test\ doc\\FoxitForm.pdf");
     var myDoc2 = app.openDoc("C:\\Users\\Hong\\Pictures\\workspace.PNG");
 };
 
-var testOpenFDF = function() {
+function testOpenFDF() {
     app.openFDF("C:\\Users\\Hong\\Downloads\\FoxitForm.fdf");
 };
 
-var testPopUpMenu = function() {
+function testPopUpMenu() {
     var cChoice = app.popUpMenu("Introduction", "-", "Chapter 1", ["Chapter 2", "Chapter 2 Start", "Chapter 2 Middle", ["Chapter 2 End", "The End"]]);
 };
 
-var testPopUpMenuEx = function() {
+function testPopUpMenuEx() {
     var cChoice = app.popUpMenuEx({
         cName: "Item 1",
         bMarked: true,
@@ -285,7 +285,7 @@ var testPopUpMenuEx = function() {
     })
 };
 
-var testResponse = function() {
+function testResponse() {
     var cResponse = app.response({
         cQuestion: "How are you today?",
         cTitle: "Your Health Status",
@@ -295,11 +295,11 @@ var testResponse = function() {
     });
 };
 
-var testSetInterval = function() {
+function testSetInterval() {
     testBeep();
 };
 
-var testSetTimeOut = function() {
+function testSetTimeOut() {
     testBeep();
 };
 
@@ -313,31 +313,31 @@ function executeTest(object, property) //allowing incorrect syntax
     app.alert(message);
 }
 
-var testAuthor = function() {
+function testAuthor() {
     executeTest(this, "author");
 };
 
-var testBookmarkRoot = function() {
+function testBookmarkRoot() {
     executeTest(this, "bookmarkRoot");
 };
 
-var testCalculate = function() {
+function testCalculate() {
 
 };
 
-var testCreationDate = function() {
+function testCreationDate() {
     executeTest(this, "creationDate");
 };
 
-var testCreator = function() {
+function testCreator() {
     executeTest(this, "creator");
 };
 
-var testDataObjects = function() {
+function testDataObjects() {
     executeTest(this, "dataObjects");
 };
 
-var testDelay = function() {
+function testDelay() {
     var nButton = app.alert({
         cMsg: "delay = ? (result in page 6's checkbox)",
         nIcon: 3,
@@ -359,7 +359,7 @@ var testDelay = function() {
     //expected -- yes4 no3 cancel2
 };
 
-var testDirty = function() {
+function testDirty() {
     var f = this.getField("TextField0");
     f.value = "You have made too many mistakes, I’m resetting the form. " +
         "Start over, this time follow the directions!";
@@ -367,23 +367,23 @@ var testDirty = function() {
     this.dirty = false;
 };
 
-var testDocumentFileName = function() {
+function testDocumentFileName() {
     executeTest(this, "documentFileName");
 };
 
-var testDynamicXFAForm = function() {
+function testDynamicXFAForm() {
     app.alert("dynamicXFAForm: " + dynamicXFAForm);
 };
 
-var testExternal = function() {
+function testExternal() {
     app.alert("external: " + external);
 };
 
-var testFilesize = function() {
+function testFilesize() {
     executeTest(this, "fileSize");
 };
 
-var testIcons = function() {
+function testIcons() {
     var msg = "";
     msg += "icons info: \r\n";
     msg += icons.length + "\r\n";
@@ -396,11 +396,11 @@ var testIcons = function() {
     app.alert(msg);
 };
 
-var testInfo = function() {
+function testInfo() {
     app.alert("info: " + this.info.Title + " " + this.info.Author);
 };
 
-var testKeywords = function() {
+function testKeywords() {
     var msg = "";
     msg += "keyowords: \r\n";
     for (var i in this.keywords) {
@@ -409,60 +409,60 @@ var testKeywords = function() {
     app.alert(msg);
 };
 
-var testLayout = function() {
+function testLayout() {
     app.alert(this.layout);
 };
 
-var testDocMedia = function() {
+function testDocMedia() {
     var annots = this.media.getAnnots({
         nPage: 0
     });
     app.alert(annots.length);
 };
 
-var testModDate = function() {
+function testModDate() {
     executeTest(this, "modDate");
 };
 
-var testMouseX = function() {
+function testMouseX() {
     executeTest(this, "mouseX");
 };
 
-var testMouseY = function() {
+function testMouseY() {
     executeTest(this, "mouseY");
 };
 
-var testNumFields = function() {
+function testNumFields() {
     executeTest(this, "numFields");
 };
 
-var testNumPages = function() {
+function testNumPages() {
     executeTest(this, "numPages");
 };
 
-var testPageNum = function() {
+function testPageNum() {
     executeTest(this, "pageNum");
 };
 
-var testPath = function() {
+function testPath() {
     executeTest(this, "path");
 };
 
-var testProducer = function() {
+function testProducer() {
     executeTest(this, "producer");
 };
 
-var testSecurityHandler = function() {
+function testSecurityHandler() {
     app.alert(this.securityHandler != null ?
         "This document is encrypted with " + this.securityHandler +
         " security." : "This document is unencrypted.");
 };
 
-var testSubject = function() {
+function testSubject() {
     executeTest(this, "subject");
 };
 
-var testTemplates = function() {
+function testTemplates() {
     var t = this.templates;
     var msg = "";
     for (var i = 0; i < t.length; i++) {
@@ -473,15 +473,15 @@ var testTemplates = function() {
     app.alert(msg);
 };
 
-var testTitle = function() {
+function testTitle() {
     executeTest(this, "title");
 };
 
-var testURL = function() {
+function testURL() {
     executeTest(this, "URL");
 };
 
-var testZoom = function() {
+function testZoom() {
     var nButton = app.alert({
         cMsg: "yes for zooming in no for zooming out",
         nIcon: 3,
@@ -499,11 +499,11 @@ var testZoom = function() {
 
 };
 
-var testZoomType = function() {
+function testZoomType() {
     executeTest(this, "zoomType");
 };
 
-var testAddAnnot = function() {
+function testAddAnnot() {
     var annot = this.addAnnot({
         page: 5,
         type: "Square",
@@ -514,7 +514,7 @@ var testAddAnnot = function() {
     });
 };
 
-var testAddField = function() {
+function testAddField() {
     var inch = 72;
     var aRect = this.getPageBox({
         nPage: 5
@@ -527,7 +527,7 @@ var testAddField = function() {
     var f = this.addField("NextPage", "button", 5, aRect);
 };
 
-var testAddIcon = function() {
+function testAddIcon() {
     var f = this.getField("pb1");
     this.addIcon("myButtonIcon", f.buttonGetIcon());
 
@@ -536,7 +536,7 @@ var testAddIcon = function() {
     b.buttonSetIcon(i);
 };
 
-var testAddLink = function() {
+function testAddLink() {
     var linkWidth = 36;
     var linkHeight = 18;
     var linkRect = [0, linkHeight, linkWidth, 0];
@@ -544,22 +544,22 @@ var testAddLink = function() {
     lk.setAction("this.getURL('http://www.google.com');");
 };
 
-var testCalculateNow = function() {
+function testCalculateNow() {
 
 };
 
-var testCloseDoc = function() {
+function testCloseDoc() {
     var myDoc = app.newDoc();
     myDoc.closeDoc(true);
 };
 
-var testCreateDataObject = function() {
+function testCreateDataObject() {
     this.createDataObject("MyData", "This is some data.");
     var d = this.getDataObject("MyData");
     for (var i in d) app.alert("MyData." + i + "=" + d[i]);
 };
 
-var testCreateTemplate = function() {
+function testCreateTemplate() {
     this.newPage();
     createTemplate({
         cName: "template" + (numPages - 1),
@@ -568,7 +568,7 @@ var testCreateTemplate = function() {
     testTemplates();
 };
 
-var testDeletePages = function() {
+function testDeletePages() {
     var nButton = app.alert({
         cMsg: "yes for adding pages no for deleting pages",
         nIcon: 3,
@@ -586,32 +586,32 @@ var testDeletePages = function() {
 
 };
 
-var testExportAsFDF = function() {
+function testExportAsFDF() {
     this.exportAsFDF(true, true, null, true);
 };
 
-var testExportAsText = function() {
+function testExportAsText() {
     var text = this.exportAsText();
     app.alert(text);
 };
 
-var testExportAsXFDF = function() {
+function testExportAsXFDF() {
     this.exportAsXFDF();
 };
 
-var testExportDataObject = function() {
+function testExportDataObject() {
     this.createDataObject("MyData", "This is some data.");
     this.exportDataObject("MyData");
 };
 
-var testExtractPages = function() {
+function testExtractPages() {
     this.extractPages({
         nStart: 1,
         cPath: "C:\\test doc\\a.pdf"
     });
 };
 
-var testGetAnnot = function() {
+function testGetAnnot() {
     var annots = getAnnots({
         nPage: 5
     });
@@ -621,11 +621,11 @@ var testGetAnnot = function() {
     app.alert("Found it! type: " + ann.type);
 };
 
-var testGetAnnot3D = function() {
+function testGetAnnot3D() {
 
 };
 
-var testGetAnnots = function() {
+function testGetAnnots() {
     var annots = this.getAnnots({
         nPage: 5
     });
@@ -637,7 +637,7 @@ var testGetAnnots = function() {
     app.alert(msg);
 };
 
-var testGetAnnots3D = function() {
+function testGetAnnots3D() {
     //need to insert a 3d annot into the document
     var annots3d = this.getAnnots3D({
         nPage: 5
@@ -650,7 +650,7 @@ var testGetAnnots3D = function() {
     app.alert(msg);
 };
 
-var testGetDataObject = function() {
+function testGetDataObject() {
     this.createDataObject("MyData", "This is some data.");
     var d = this.getDataObject("MyData");
     var msg = "";
@@ -658,15 +658,15 @@ var testGetDataObject = function() {
     app.alert(msg);
 };
 
-var testGetField = function() {
+function testGetField() {
     testAddIcon();
 };
 
-var testGetIcon = function() {
+function testGetIcon() {
     testAddIcon();
 };
 
-var testGetLinks = function() {
+function testGetLinks() {
     var numLinks = 0;
     for (var p = 0; p < this.numPages; p++) {
         var b = this.getPageBox("Crop", p);
@@ -681,23 +681,23 @@ var testGetLinks = function() {
         app.alert("Number of Links in Document is " + numLinks);
 };
 
-var testGetNthFieldName = function() {
+function testGetNthFieldName() {
     var msg = "";
     for (var i = 0; i < this.numFields; i++)
         msg += ("Field[" + i + "] = " + this.getNthFieldName(i)) + "\r\n";
     app.alert(msg);
 };
 
-var testGetOCGs = function() {
+function testGetOCGs() {
     var ocgArray = getOCGs(0);
     app.alert(ocgArray.length);
 };
 
-var testGetPageBox = function() {
+function testGetPageBox() {
     testAddField();
 };
 
-var testGetPageNthWord = function() {
+function testGetPageNthWord() {
     var word = getPageNthWord({
         nPage: 5,
         nWord: 0
@@ -705,7 +705,7 @@ var testGetPageNthWord = function() {
     app.alert(word);
 };
 
-var testGetPageNthWordQuads = function() {
+function testGetPageNthWordQuads() {
     var quads = getPageNthWordQuads({
         nPage: 5,
         nWord: 0
@@ -714,22 +714,22 @@ var testGetPageNthWordQuads = function() {
     app.alert(quads);
 };
 
-var testGetPageNumWords = function() {
+function testGetPageNumWords() {
     var cnt = getPageNumWords(5);
     app.alert(cnt);
 };
 
-var testGetPageRotation = function() {
+function testGetPageRotation() {
     var rotation = getPageRotation(5);
     app.alert(rotation);
 };
 
-var testGetPageTransition = function() {
+function testGetPageTransition() {
     var transitionArray = this.getPageTransition();
     console.println(transitionArray[0]);
 };
 
-var testGetPrintParams = function() {
+function testGetPrintParams() {
     var pp = this.getPrintParams();
     var msg = "";
     for (prop in pp)
@@ -737,7 +737,7 @@ var testGetPrintParams = function() {
     app.alert(msg);
 };
 
-var testGetTemplate = function() {
+function testGetTemplate() {
     this.newPage();
     createTemplate({
         cName: "template" + (numPages - 1),
@@ -749,31 +749,31 @@ var testGetTemplate = function() {
         eval('( t.hidden) ? "hidden" : "visible"') + ".");
 };
 
-var testGetURL = function() {
+function testGetURL() {
     this.getURL("http://www.adobe.com", true);
 };
 
-var testGotoNamedDest = function() {
+function testGotoNamedDest() {
     this.gotoNamedDest("foxit");
 };
 
-var testImportAnFDF = function() {
+function testImportAnFDF() {
     this.importAnFDF("C:\\test\ doc\\foxitForm.FDF");
 };
 
-var testImportAnXFDF = function() {
+function testImportAnXFDF() {
     this.importAnXFDF("C:\\test\ doc\\foxitForm.FDF");
 };
 
-var testImportDataObject = function() {
+function testImportDataObject() {
     testGetDataObject();
 };
 
-var testImportTextData = function() {
+function testImportTextData() {
     this.importTextData("C:\\test\ doc\\foxitForm.txt");
 };
 
-var testInsertPages = function() {
+function testInsertPages() {
     this.insertPages({
         nPage: numPages - 1,
         cPath: "C:\\test\ doc\\foxitText.txt",
@@ -781,31 +781,31 @@ var testInsertPages = function() {
     });
 };
 
-var testMailDoc = function() {
+function testMailDoc() {
     this.mailDoc(true);
 };
 
-var testMailForm = function() {
+function testMailForm() {
     this.mailForm(true);
 };
 
-var testPrint = function() {
+function testPrint() {
     this.print(false, 1, 1);
 };
 
-var testRemoveDataObject = function() {
+function testRemoveDataObject() {
     testGetDataObject();
 };
 
-var testRemoveField = function() {
+function testRemoveField() {
 
 };
 
-var testRemoveIcon = function() {
+function testRemoveIcon() {
     testAddIcon();
 };
 
-var testReplacePages = function() {
+function testReplacePages() {
     newPage();
     this.replacePages({
         nPage: numPages - 1,
@@ -815,57 +815,57 @@ var testReplacePages = function() {
     });
 };
 
-var testResetForm = function() {
+function testResetForm() {
     this.resetForm("TextField0");
 };
 
-var testSaveAs = function() {
+function testSaveAs() {
     this.saveAs("C:\\test\ doc\\foxitText1.txt");
 };
 
-var testScroll = function() {
+function testScroll() {
     this.scroll(0, 300);
 };
 
-var testSpawnPageFromTemplate = function() {
+function testSpawnPageFromTemplate() {
     spawnPageFromTemplate("foxit");
 };
 
-var testSubmitForm = function() {
+function testSubmitForm() {
 
 };
 
-var testAlignment = function() {
+function testAlignment() {
     var f = getField("TextField0");
     f.alignment = "right";
     app.alert("TextField0 now aligned to right");
 };
 
-var testBorderStyle = function() {
+function testBorderStyle() {
     var f = getField("TextField0");
     f.borderStyle = border.d;
     app.alert("TextField0 now border is dashed");
 };
 
-var testButtonAlignX = function() {
+function testButtonAlignX() {
     var f = getField("pb1");
     f.buttonAlignX = 100;
     app.alert("pb1");
 };
 
-var testButtonAlignY = function() {
+function testButtonAlignY() {
     var f = getField("pb1");
     f.buttonAlignY = 100;
     app.alert("pb1");
 };
 
-var testButtonFitBounds = function() {
+function testButtonFitBounds() {
     var f = getField("pb1");
     f.buttonFitBounds = true;
     app.alert("pb1");
 };
 
-var testButtonPosition = function() {
+function testButtonPosition() {
     var nButton = app.alert({
         cMsg: "yes for textOnly no for iconOnly",
         nIcon: 3,
@@ -885,27 +885,27 @@ var testButtonPosition = function() {
 
 };
 
-var testButtonScaleHow = function() {
+function testButtonScaleHow() {
     var f = getField("pb1");
     f.buttonScaleHow = scaleHow.anamorphic;
     app.alert("pb1");
 };
 
-var testButtonScaleWhen = function() {
+function testButtonScaleWhen() {
     var f = getField("pb1");
     f.buttonScaleWhen = scaleWhen.Never;
     app.alert("pb1");
 };
 
-var testCalcOrderIndex = function() {
+function testCalcOrderIndex() {
     app.alert(getField("TextField0").calcOrderIndex);
 };
 
-var testCharLimit = function() {
+function testCharLimit() {
     app.alert(getField("TextField0").charLimit);
 };
 
-var testComb = function() {
+function testComb() {
     var nButton = app.alert({
         cMsg: "yes for comb no for no comb",
         nIcon: 3,
@@ -922,7 +922,7 @@ var testComb = function() {
     }
 };
 
-var testCommitOnSelChange = function() {
+function testCommitOnSelChange() {
     var nButton = app.alert({
         cMsg: "yes for commit on sel for no commit on sel",
         nIcon: 3,
@@ -939,29 +939,29 @@ var testCommitOnSelChange = function() {
     }
 };
 
-var testCurrentValueIndices = function() {
+function testCurrentValueIndices() {
     app.alert(getField("ComboBox0").currentValueIndices);
 
 };
 
-var testDefaultStyle = function() {
+function testDefaultStyle() {
     var style = getField("TextField0").defaultStyle;
     style.textColor = rolor.red;
     getField("TextField0").defaultStyle = style;
     app.alert("TextField0");
 };
 
-var testDefaultValue = function() {
+function testDefaultValue() {
     getField("TextField0").defaultValue = "34";
     app.alert("TextField0");
 };
 
-var testFieldDelay = function() {
+function testFieldDelay() {
 
 
 };
 
-var testDisplay = function() {
+function testDisplay() {
 
     var nButton = app.alert({
         cMsg: "yes for hidden no for no visible",
@@ -979,84 +979,84 @@ var testDisplay = function() {
     }
 };
 
-var testDoc = function() {
+function testDoc() {
     app.alert("test doc:" + getField("TextField0").doc.filesize);
 };
 
-var testDoNotScroll = function() {
+function testDoNotScroll() {
     getField("TextField0").doNotScroll = true;
 };
 
-var testDoNotSpellCheck = function() {
+function testDoNotSpellCheck() {
     getField("TextField0").doNotSpellCheck = false;
 };
 
-var testEditable = function() {
+function testEditable() {
 
 };
 
-var testExportValues = function() {
+function testExportValues() {
 
 };
 
-var testFileSelect = function() {
+function testFileSelect() {
     getField("TextField0").fileSelect = true;
 };
 
-var testFillColor = function() {
+function testFillColor() {
     getField("TextField0").fillColor = color.red;
 };
 
-var testHidden = function() {
+function testHidden() {
 
 };
 
-var testHighlight = function() {
+function testHighlight() {
     getField("PushButton0").highlight = hightlight.i;
 };
 
-var testLineWidth = function() {
+function testLineWidth() {
     getField("TextField0").lineWidth = 3;
 };
 
-var testMultiline = function() {
+function testMultiline() {
     getField("TextField0").multiline = true;
 };
 
-var testMultipleSelection = function() {
+function testMultipleSelection() {
     getField("ListBox0").multipleSelection = true;
 };
 
-var testName = function() {
+function testName() {
     app.alert(getField("TextField0").name);
 };
 
-var testNumItems = function() {
+function testNumItems() {
     app.alert(getField("ListBox0").numItems);
 };
 
-var testPage = function() {
+function testPage() {
     app.alert(getField("TextField0").page);
 };
 
-var testPassword = function() {
+function testPassword() {
     getField("TextField0").password = true;
     app.alert("TextField0 has password format now");
 };
 
-var testPrint = function() {
+function testPrint() {
     getField("TextField0").print = false;
 };
 
-var testRadiosInUnixon = function() {
+function testRadiosInUnixon() {
     getField("RadioButton1").radiosInUnixon = false;
 };
 
-var testReadonly = function() {
+function testReadonly() {
     getField("TextField0").readonly = true;
 };
 
-var testRect = function() {
+function testRect() {
     var b = getField("TextField0");
     var aRect = b.rect;
     aRect[0] += 10;
@@ -1064,11 +1064,11 @@ var testRect = function() {
     b.rect = aRect;
 };
 
-var testRequired = function() {
+function testRequired() {
     getField("TextField0").required = true;
 };
 
-var testRichText = function() {
+function testRichText() {
     getField("TextField0").richText = true;
 
     var spans = new Array();
@@ -1079,106 +1079,106 @@ var testRichText = function() {
     getField("TextField0").richValue = spans;
 };
 
-var testRichValue = function() {
+function testRichValue() {
     testRichText();
 };
 
-var testRotation = function() {
+function testRotation() {
     getField("TextField0").rotation = 180;
 };
 
-var testStrokeColor = function() {
+function testStrokeColor() {
     getField("TextField0").strokeColor = color.blue;
 };
 
-var testStyle = function() {
+function testStyle() {
     getField("RadioButton1").style = style.st;
 };
 
-var testSubmitName = function() {
+function testSubmitName() {
     getField("TextField0").submitName = "TextField100";
 };
 
-var testTextColor = function() {
+function testTextColor() {
     getField("TextField0").textColor = color.blue;
 };
 
-var testTextFont = function() {
+function testTextFont() {
     getField("TextField0").textFont = font.TimesI;
 };
 
-var testTextSize = function() {
+function testTextSize() {
     getField("TextField0").textSize = 28;
 };
 
-var testType = function() {
+function testType() {
     app.alert(getField("TextField0").type);
 };
 
-var testUserName = function() {
+function testUserName() {
     getField("TextField0").userName = "A TextField";
 };
 
-var testValue = function() {
+function testValue() {
     getField("TextField0").value = "Two TextFields";
 };
 
-var testValueAsString = function() {
+function testValueAsString() {
     app.alert(getField("TextField0").valueAsString);
 };
 
-var testBrowseForFileToSubmit = function() {
+function testBrowseForFileToSubmit() {
     getField("TextField0").fileSelect = true;
     getField("TextField0").browseForFileToSubmit();
 };
 
-var testButtonGetCaption = function() {
+function testButtonGetCaption() {
     app.alert(getField("PushButton0").buttonGetCaption());
 };
 
-var testButtonGetIcon = function() {
+function testButtonGetIcon() {
     testAddIcon();
 };
 
-var testButtonImportIcon = function() {
+function testButtonImportIcon() {
     getField("pb0").buttonImportIcon("C:\\test\ doc\\FoxitForm.pdf");
 };
 
-var testButtonSetCaption = function() {
+function testButtonSetCaption() {
     getField("PushButton0").buttonSetCaption("HelloButton");
 };
 
-var testButtonSetIcon = function() {
+function testButtonSetIcon() {
     testAddIcon();
 };
 
-var testCheckThisBox = function() {
+function testCheckThisBox() {
     getField("CheckBox0").checkThisBox(0, true);
 };
 
-var testClearItems = function() {
+function testClearItems() {
     getField("ComboBox0").clearItems();
 };
 
-var testDefaultIsChecked = function() {
+function testDefaultIsChecked() {
     getField("CheckBox0").defaultIsChecked(0, true);
 };
 
-var testDeleteItemAt = function() {
+function testDeleteItemAt() {
     getField("ComboBox0").deleteItemAt(1);
 };
 
-var testGetArray = function() {
+function testGetArray() {
     var f = this.getField("f");
     var a = f.getArray();
     app.alert(a[1].value);
 };
 
-var testGetItemAt = function() {
+function testGetItemAt() {
     app.alert(getField("ComboBox0").getItemAt(1));
 };
 
-var testGetLock = function() {
+function testGetLock() {
     var lockObject = {
         action: "Include",
         fields: ["pb0", "TextField0"]
@@ -1190,29 +1190,29 @@ var testGetLock = function() {
 
 };
 
-var testInsertItemAt = function() {
+function testInsertItemAt() {
     getField("ComboBox0").insertItemAt("sam", "s", -1);
     app.alert("ComboBox0: sam, s, -1");
 };
 
-var testIsBoxChecked = function() {
+function testIsBoxChecked() {
     app.alert("if CheckBox0 checked: " + getField("CheckBox0").isBoxChecked(0));
 };
 
-var testIsDefaultChecked = function() {
+function testIsDefaultChecked() {
     app.alert("if CheckBox0 default checked: " + getField("CheckBox0").isDefaultChecked(0));
 };
 
-var testSetAction = function() {
+function testSetAction() {
     var f = this.addField("actionField", "button", 5, [20, 100, 100, 20]);
     f.setAction("MouseUp", "app.beep(0);");
 };
 
-var testSetFocus = function() {
+function testSetFocus() {
     getField("TextField0").setFocus();
 };
 
-var testSetItems = function() {
+function testSetItems() {
     getField("ComboBox0").setItems([
         ["item0", "export0"],
         ["item1", "export1"],
@@ -1221,11 +1221,11 @@ var testSetItems = function() {
     app.alert("ComboBox0");
 };
 
-var testSetLock = function() {
+function testSetLock() {
     testGetLock();
 };
 
-var testSignatureGetModifications = function() {
+function testSignatureGetModifications() {
     var sigMods = getField("Signature0").signatureGetModifications();
     var fields = sigMods.formFieldsCreated;
     var msg = "";
@@ -1235,7 +1235,7 @@ var testSignatureGetModifications = function() {
     app.alert(msg);
 };
 
-var testSignatureGetSeedValue = function() {
+function testSignatureGetSeedValue() {
     var sigFie = this.getField("Signature0");
     sigFie.signatureSetSeedValue({
         mdp: "defaultAndComments",
@@ -1250,22 +1250,22 @@ var testSignatureGetSeedValue = function() {
     app.alert("Filter name:" + seedValue.filter + "\r\nFlags:" + seedValue.flags);
 };
 
-var testSignatureInfo = function() {
+function testSignatureInfo() {
     var sig = getField("Signature0").signatureInfo();
     var msg = "";
     msg += ("Signature Attributes:\r\n");
     for (i in sig) msg == (i + " = " + s[i] + "\r\n");
 };
 
-var testSignatureSetSeedValue = function() {
+function testSignatureSetSeedValue() {
     testSignatureGetSeedValue();
 };
 
-var testSignatureSign = function() {
+function testSignatureSign() {
     testSignatureGetSeedValue();
 };
 
-var testSignatureValidate = function() {
+function testSignatureValidate() {
     var sigFie = this.getField("Signature0");
     var status = sigFie.signatureValidate();
     sig = getField("Signature0").signatureInfo();
@@ -1279,23 +1279,23 @@ var testSignatureValidate = function() {
 
 };
 
-var testCoporation = function() {
+function testCoporation() {
     app.alert(identity.corporation);
 };
 
-var testEmail = function() {
+function testEmail() {
     app.alert(identity.email);
 };
 
-var testLoginName = function() {
+function testLoginName() {
     app.alert(identity.loginName);
 };
 
-var testIdentityName = function() {
+function testIdentityName() {
     app.alert(identity.name);
 };
 
-var testSetPersistent = function() {
+function testSetPersistent() {
 
     var nButton = app.alert({
         cMsg: "yes set persistent no check persistent",
@@ -1315,7 +1315,7 @@ var testSetPersistent = function() {
 
 };
 
-var testTemplateHidden = function() {
+function testTemplateHidden() {
     var t = getTemplate("foxit");
     if (t == undefined) {
         app.alert("template undefined");
@@ -1324,7 +1324,7 @@ var testTemplateHidden = function() {
     }
 };
 
-var testTemplateName = function() {
+function testTemplateName() {
     var t = getTemplate("foxit");
     if (t == undefined) {
         app.alert("template undefined");
@@ -1333,7 +1333,7 @@ var testTemplateName = function() {
     }
 };
 
-var testSpawn = function() {
+function testSpawn() {
     var t = getTemplate("foxit");
     if (t == undefined) {
         app.alert("template undefined");
@@ -1342,191 +1342,191 @@ var testSpawn = function() {
     }
 };
 
-var testPrintf = function() {
+function testPrintf() {
     app.alert(util.printf("hex: %x", 1209));
 };
 
-var testPrintx = function() {
+function testPrintx() {
     app.alert(util.printx("(XXX) XXX - XXXX", "abcdefghij"));
 };
 
-var testScand = function() {
+function testScand() {
     var dstring = util.printd("mmmm dd, yyyy", new Date());
     var dreal = util.scand("mmmm dd, yyyy", dstring);
 
     app.alert(dreal + "\r\n" + util.printd("mmmm dd, yyyy", dreal));
 };
 
-var testPrintd = function() {
+function testPrintd() {
     testScand();
 };
 
-var testAFDate_Format = function() {
+function testAFDate_Format() {
 
 };
 
-var testAFDate_FormatEx = function() {
+function testAFDate_FormatEx() {
 
 };
 
-var testAFDate_Keystroke = function() {
+function testAFDate_Keystroke() {
 
 };
 
-var testAFDate_KeystrokeEx = function() {
+function testAFDate_KeystrokeEx() {
 
 };
 
-var testAFExtractNums = function() {
+function testAFExtractNums() {
 
 };
 
-var testAFMakeNumber = function() {
+function testAFMakeNumber() {
 
 };
 
-var testAFMergeChange = function() {
+function testAFMergeChange() {
 
 };
 
-var testAFNumber_Format = function() {
+function testAFNumber_Format() {
 
 };
 
-var testAFNumber_Keystroke = function() {
+function testAFNumber_Keystroke() {
 
 };
 
-var testAFParseDateEx = function() {
+function testAFParseDateEx() {
 
 };
 
-var testAFPercent_Format = function() {
+function testAFPercent_Format() {
 
 };
 
-var testAFPercent_Keystroke = function() {
+function testAFPercent_Keystroke() {
 
 };
 
-var testAFRange_Validate = function() {
+function testAFRange_Validate() {
 
 };
 
-var testAFSimple = function() {
+function testAFSimple() {
 
 };
 
-var testAFSimple_Calculate = function() {
+function testAFSimple_Calculate() {
 
 };
 
-var testAFSpecial_Keystroke = function() {
+function testAFSpecial_Keystroke() {
 
 };
 
-var testAFSpecial_KeystrokeEx = function() {
+function testAFSpecial_KeystrokeEx() {
 
 };
 
-var testAFTime_Format = function() {
+function testAFTime_Format() {
 
 };
 
-var testAFTime_FormatEx = function() {
+function testAFTime_FormatEx() {
 
 };
 
-var testAFTime_Keystroke = function() {
+function testAFTime_Keystroke() {
 
 };
 
-var testClear = function() {
+function testClear() {
     console.clear();
 };
 
-var testHide = function() {
+function testHide() {
     console.hide();
 };
 
-var testPrintln = function() {
+function testPrintln() {
     console.println("console println");
 };
 
-var testShow = function() {
+function testShow() {
     console.show();
 };
 
-var testTransparent = function() {
+function testTransparent() {
     getField("TextField0").fillColor = color.transparent;
     app.alert("TextField0");
 };
 
-var testBlack = function() {
+function testBlack() {
     getField("TextField0").fillColor = color.black;
     app.alert("TextField0");
 };
 
-var testWhite = function() {
+function testWhite() {
     getField("TextField0").fillColor = color.white;
     app.alert("TextField0");
 };
 
-var testRed = function() {
+function testRed() {
     getField("TextField0").fillColor = color.red;
     app.alert("TextField0");
 };
 
-var testGreen = function() {
+function testGreen() {
     getField("TextField0").fillColor = color.green;
     app.alert("TextField0");
 };
 
-var testBlue = function() {
+function testBlue() {
     getField("TextField0").fillColor = color.blue;
     app.alert("TextField0");
 };
 
-var testCyan = function() {
+function testCyan() {
     getField("TextField0").fillColor = color.cyan;
     app.alert("TextField0");
 };
 
-var testMagenta = function() {
+function testMagenta() {
     getField("TextField0").fillColor = color.magenta;
     app.alert("TextField0");
 };
 
-var testYellow = function() {
+function testYellow() {
     getField("TextField0").fillColor = color.yellow;
     app.alert("TextField0");
 };
 
-var testDkGray = function() {
+function testDkGray() {
     getField("TextField0").fillColor = color.dkGray;
     app.alert("TextField0");
 };
 
-var testGray = function() {
+function testGray() {
     getField("TextField0").fillColor = color.gray;
     app.alert("TextField0");
 };
 
-var testLtGray = function() {
+function testLtGray() {
     getField("TextField0").fillColor = color.ltGray;
     app.alert("TextField0");
 };
 
-var testEqual = function() {
+function testEqual() {
     app.alert(color.equal(color.yellow, color.yellow));
 };
 
-var testConvert = function() {
+function testConvert() {
     var cmyk = color.convert(["RGB", 1, 0, 0], "CMYK");
     app.alert(cmyk);
 };
 
-var testMissingList = function() {
+function testMissingList() {
     var msg = "existing list:\r\n";
     for (var i in missingList) {
         var arr = missingList[i];
