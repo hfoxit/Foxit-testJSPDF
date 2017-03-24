@@ -2754,7 +2754,7 @@ function generateReport() {
 
     var msg = "";
     var testArr = ["__app", "__this", "__field", "__global", "__util", "__color", "__console", "__identity", "__template", "__thermometer"];
-    var evaluators = ["app", "this", "getField('TextField0')", "global", "util", "color", "console", "identity", "getTemplate", "app.thermometer"];
+    var evaluators = ["app", "this", "getField('TextField0')", "global", "util", "color", "console", "identity", "getTemplate('foxit')", "app.thermometer"];
 
     var t = getAdobePropObj();
     for (var prop in t) { //every category
