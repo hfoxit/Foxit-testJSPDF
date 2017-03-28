@@ -2754,7 +2754,7 @@ function generateReport() {
 
     var msg = "";
     var testArr = ["__app", "__this", "__field", "__global", "__util", "__color", "__console", "__identity", "__template", "__thermometer"];
-    var evaluators = ["app", "this", "getField('TextField0')", "global", "util", "color", "console", "identity", "getTemplate('foxit')", "app.thermometer"];
+    var evaluators = [app, this, getField('TextField0'), global, util, color, console, identity, getTemplate('foxit'), app.thermometer];
 
     var t = getAdobePropObj();
     for (var prop in t) { //every category
@@ -2768,7 +2768,7 @@ function generateReport() {
         for (var i in tItemArray) {
             // i is the index
             var found = false;
-            for (var j in eval(evaluators[propIndex])) //evaluator's properties
+            for (var j in evaluators[propIndex]) //evaluator's properties
             {
                 if (String(tItemArray[i]) == String(j)) {
                     found = true;
