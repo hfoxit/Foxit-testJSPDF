@@ -2783,3 +2783,45 @@ function generateReport() {
 
     getField("Report0").value = msg;
 }
+
+function toUTF8Representation(strUnicode) {
+    var encoded = encodeURIComponent(strUnicode);
+    //remove all %
+    var encodedBytes = encoded.split('%').join('');
+    var value = parseInt(encodedBytes, 16);
+    var intArr = [];
+    var splitArray = encoded.split('%');
+    if (splitArray.length < 2) return;
+    for (var i = 1; i < splitArray.length; i++) {
+        intArr.push(parseInt(splitArray[i], 16));
+    }
+    return String.fromCharCode.apply(this, intArr);
+}
+
+function toUTF8ByteArray(strUnicode) {
+    var encoded = encodeURIComponent(strUnicode);
+    //remove all %
+    var encodedBytes = encoded.split('%').join('');
+    var value = parseInt(encodedBytes, 16);
+    var intArr = [];
+    var splitArray = encoded.split('%');
+    if (splitArray.length < 2) return;
+    for (var i = 1; i < splitArray.length; i++) {
+        intArr.push(parseInt(splitArray[i], 16));
+    }
+    return intArr;
+}
+
+function toUTF8RawValue(strUnicode) {
+    var encoded = encodeURIComponent(strUnicode);
+    //remove all %
+    var encodedBytes = encoded.split('%').join('');
+    var value = parseInt(encodedBytes, 16);
+    var intArr = [];
+    var splitArray = encoded.split('%');
+    if (splitArray.length < 2) return;
+    for (var i = 1; i < splitArray.length; i++) {
+        intArr.push(parseInt(splitArray[i], 16));
+    }
+    return value;
+}
